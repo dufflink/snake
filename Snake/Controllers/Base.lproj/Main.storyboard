@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8vc-Qs-hTh">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="uQJ-zZ-dPY">
+            <objects>
+                <viewController id="8vc-Qs-hTh" customClass="GameViewController" customModule="Snake" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4yC-HY-k6f" userLabel="Root View">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8RF-Fx-DXX" userLabel="skView" customClass="SKView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LlX-rh-XRS"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8RF-Fx-DXX" secondAttribute="trailing" id="KDg-dE-Fbn"/>
+                            <constraint firstItem="8RF-Fx-DXX" firstAttribute="leading" secondItem="LlX-rh-XRS" secondAttribute="leading" id="PRu-4v-vtz"/>
+                            <constraint firstItem="8RF-Fx-DXX" firstAttribute="top" secondItem="LlX-rh-XRS" secondAttribute="top" id="ZDh-zG-nAq"/>
+                            <constraint firstItem="8RF-Fx-DXX" firstAttribute="bottom" secondItem="LlX-rh-XRS" secondAttribute="bottom" id="gLb-il-VJl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="skView" destination="8RF-Fx-DXX" id="1RF-gv-wtU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J69-xh-FGp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-881.15942028985512" y="85.714285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
