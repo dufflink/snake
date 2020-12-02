@@ -15,13 +15,24 @@ final class GameScene: SKScene {
     var map: MapNode!
     var snake: Snake!
     
+    var engine = GameEngine()
+    
+    override func update(_ currentTime: TimeInterval) {
+        super.update(currentTime)
+        engine.update(with: currentTime)
+        
+        if engine.canUpdate {
+            snake.move()
+        }
+    }
+    
     override func sceneDidLoad() {
         super.sceneDidLoad()
         initScene()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        restartGame()
+    override func didMove(to view: SKView) {
+        addSwipeGestures(view: view)
     }
     
     // MARK: - Private Fucntions
@@ -52,6 +63,22 @@ final class GameScene: SKScene {
     private func resetFood() {
         food?.reset()
         food?.addToScene()
+    }
+    
+    private func addSwipeGestures(view: SKView) {
+        let directions: [UISwipeGestureRecognizer.Direction] = [.up, .down, .right, .left]
+        
+        for direction in directions {
+            let swipe = UISwipeGestureRecognizer(target: self, action: #selector(changeSnakeMovingDirection(swipeGesture:)))
+            swipe.direction = direction
+            view.addGestureRecognizer(swipe)
+        }
+    }
+    
+    @objc
+    private func changeSnakeMovingDirection(swipeGesture: UISwipeGestureRecognizer) {
+        let newDirection = Snake.MovingDirection(swipeDirection: swipeGesture.direction)
+        snake.addMovingDirection(newDirection)
     }
     
 }

@@ -34,8 +34,8 @@ final class MapNode: GameNode {
         let sceneWidth = scene.width
         let sceneHeight = scene.height
         
-        let boxSide = sceneWidth / Game.mapColumns
-        Game.boxSide = boxSide
+        let boxSide = sceneWidth / GameOptions.mapColumns
+        GameOptions.boxSide = boxSide
         
         for y in stride(from: boxSide, to: sceneHeight - boxSide, by: boxSide) {
             for x in stride(from: boxSide, to: sceneWidth - boxSide, by: boxSide) {
@@ -48,8 +48,8 @@ final class MapNode: GameNode {
     var rows: [[Box]] {
         var result: [[Box]] = []
         
-        let columns = Game.mapColumns - 1
-        let rows = (scene.height / Game.boxSide) - 1
+        let columns = GameOptions.mapColumns - 1
+        let rows = (scene.height / GameOptions.boxSide) - 1
         
         for i in 0 ..< rows {
             let min = i * columns

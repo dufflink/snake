@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-struct Game {
+struct GameOptions {
     
     static var boxSize = CGSize(width: boxSide - 1, height: boxSide - 1)
     static var boxSide = 30

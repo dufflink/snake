@@ -13,6 +13,8 @@ protocol SpriteNode: GameNode {
     
     var map: MapNode { get }
     
+    func move()
+    
 }
 
 class Sprite: SpriteNode {
@@ -32,6 +34,10 @@ class Sprite: SpriteNode {
         self.color = color
         reset()
     }
+    
+    // MARK - Public Functions
+    
+    func move() { }
     
     func reset() {
         clear()
