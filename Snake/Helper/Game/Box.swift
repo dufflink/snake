@@ -7,18 +7,15 @@
 
 import SpriteKit
 
-struct Box {
+struct Box: Equatable {
     
     var node: SKSpriteNode
     
     var x: Int
     var y: Int
     
-}
-
-struct MapBox {
-    
-    var x: Int
-    var y: Int
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.x == rhs.x && lhs.y == rhs.y
+    }
     
 }

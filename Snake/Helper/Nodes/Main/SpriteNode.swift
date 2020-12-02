@@ -17,7 +17,7 @@ protocol SpriteNode: GameNode {
 
 class Sprite: SpriteNode {
     
-    var scene: SKScene
+    unowned var scene: SKScene
     var map: MapNode
     
     var elements: [Box] = []

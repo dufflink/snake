@@ -14,7 +14,7 @@
 		B00538F3257579ED00D328F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00538F2257579ED00D328F1 /* Assets.xcassets */; };
 		B00538FC25757B4600D328F1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B00538FB25757B4600D328F1 /* GameScene.sks */; };
 		B095D25225764B3900135F2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B095D25125764B3900135F2C /* LaunchScreen.storyboard */; };
-		B0AAFFE42576A3BA003220D8 /* WallFrameNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAFFE32576A3BA003220D8 /* WallFrameNode.swift */; };
+		B0AAFFE42576A3BA003220D8 /* WallFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAFFE32576A3BA003220D8 /* WallFrame.swift */; };
 		B0AAFFE72576A4A6003220D8 /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAFFE62576A4A6003220D8 /* Snake.swift */; };
 		B0AAFFEC2576AA21003220D8 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAFFEB2576AA21003220D8 /* Food.swift */; };
 		B0AAFFF02576ABB4003220D8 /* SKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAFFEF2576ABB4003220D8 /* SKScene.swift */; };
@@ -36,7 +36,7 @@
 		B00538F2257579ED00D328F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B00538FB25757B4600D328F1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		B095D25125764B3900135F2C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B0AAFFE32576A3BA003220D8 /* WallFrameNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallFrameNode.swift; sourceTree = "<group>"; };
+		B0AAFFE32576A3BA003220D8 /* WallFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallFrame.swift; sourceTree = "<group>"; };
 		B0AAFFE62576A4A6003220D8 /* Snake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
 		B0AAFFEB2576AA21003220D8 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		B0AAFFEF2576ABB4003220D8 /* SKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKScene.swift; sourceTree = "<group>"; };
@@ -106,6 +106,15 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
+		B0295E9D2577861B0022480F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B0DF37DE25769FB300A3E453 /* GameNode.swift */,
+				B0AAFFF62576BD96003220D8 /* SpriteNode.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		B095D2552576576600135F2C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,8 +137,7 @@
 			children = (
 				B0AAFFE62576A4A6003220D8 /* Snake.swift */,
 				B0AAFFEB2576AA21003220D8 /* Food.swift */,
-				B0AAFFF62576BD96003220D8 /* SpriteNode.swift */,
-				B0AAFFE32576A3BA003220D8 /* WallFrameNode.swift */,
+				B0AAFFE32576A3BA003220D8 /* WallFrame.swift */,
 			);
 			path = Sprites;
 			sourceTree = "<group>";
@@ -147,8 +155,8 @@
 		B0DF37DD25769FA000A3E453 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				B0295E9D2577861B0022480F /* Main */,
 				B0AAFFF92576C071003220D8 /* Sprites */,
-				B0DF37DE25769FB300A3E453 /* GameNode.swift */,
 				B0AAFFF32576B9B4003220D8 /* MapNode.swift */,
 			);
 			path = Nodes;
@@ -246,7 +254,7 @@
 				B0DF37E42576A15800A3E453 /* Box.swift in Sources */,
 				B0DF37DF25769FB300A3E453 /* GameNode.swift in Sources */,
 				B0DF37DB25769EF900A3E453 /* Game.swift in Sources */,
-				B0AAFFE42576A3BA003220D8 /* WallFrameNode.swift in Sources */,
+				B0AAFFE42576A3BA003220D8 /* WallFrame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ final class Snake: Sprite {
     
     override func reset() {
         super.reset()
-        var index = map.elements.count / 2
+        var index = map.midIndex
         
         for _ in 0 ..< defaultLenght {
             index -= 1
