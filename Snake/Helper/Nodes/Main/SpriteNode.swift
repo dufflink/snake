@@ -35,7 +35,7 @@ class Sprite: SpriteNode {
         reset()
     }
     
-    // MARK - Public Functions
+    // MARK: - Public Functions
     
     func move() { }
     

@@ -28,10 +28,11 @@ protocol GameNode: class {
 extension GameNode {
     
     func createBox(x: Int, y: Int, color: UIColor? = nil) -> Box {
-        let node = SKSpriteNode(color: color ?? self.color, size: GameOptions.boxSize)
+        let node = SKSpriteNode(color: color ?? self.color, size: Game.boxSize)
         node.position = CGPoint(x: x, y: y)
         
         let box = Box(node: node, x: x, y: y)
+        
         return box
     }
     

@@ -38,6 +38,9 @@ final class GameScene: SKScene {
     // MARK: - Private Fucntions
     
     private func initScene() {
+        physicsWorld.contactDelegate = self
+        physicsWorld.gravity = .zero
+        
         map = MapNode(scene: self)
         map.addToScene()
         
@@ -79,6 +82,24 @@ final class GameScene: SKScene {
     private func changeSnakeMovingDirection(swipeGesture: UISwipeGestureRecognizer) {
         let newDirection = Snake.MovingDirection(swipeDirection: swipeGesture.direction)
         snake.addMovingDirection(newDirection)
+    }
+    
+}
+
+// MARK: - SKPhysics Contact Delegate
+
+extension GameScene: SKPhysicsContactDelegate {
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        switch contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask {
+            case Game.Sprite.snakeHead.bitMask | Game.Sprite.food.bitMask:
+                resetFood()
+                snake.addBox()
+            case Game.Sprite.wall.bitMask | Game.Sprite.snakeHead.bitMask, Game.Sprite.snakeBody.bitMask | Game.Sprite.snakeHead.bitMask:
+                restartGame()
+            default:
+                print("Contacts nouse objects")
+        }
     }
     
 }

@@ -7,52 +7,41 @@
 
 import GameplayKit
 
-extension Snake {
-    
-    enum MovingDirection {
-        
-        case up
-        case down
-        
-        case left
-        case right
-        
-        init(swipeDirection: UISwipeGestureRecognizer.Direction) {
-            switch swipeDirection {
-                case .up:
-                    self = .up
-                case .down:
-                    self = .down
-                case .left:
-                    self = .left
-                case .right:
-                    self = .right
-                default:
-                    self = .up
-            }
-        }
-        
-    }
-    
-}
-
 final class Snake: Sprite {
     
     private var defaultLenght = 3
-    private var step = GameOptions.boxSide
+    private var step = Game.boxSide
     
     private var currentMovingDirection: MovingDirection = .right
     private var movingDirections: [MovingDirection] = []
     
+    // MARK: - Public Functions
+    
+    func addBox() {
+        if let tail = elements.last {
+            let box = createBodyBox(x: tail.x + 1, y: tail.y + 1)
+            
+            scene.addChild(box.node)
+            elements.append(box)
+        }
+    }
+    
     override func reset() {
         super.reset()
         var index = map.midIndex
+        currentMovingDirection = .right
         
-        for _ in 0 ..< defaultLenght {
+        for i in 0 ..< defaultLenght {
             index -= 1
-
+            
             let mapBox = map.elements[index]
-            let box = createBox(x: mapBox.x, y: mapBox.y)
+            var box: Box
+            
+            if i == 0 {
+                box = createHeadBox(x: mapBox.x, y: mapBox.y)
+            } else {
+                box = createBodyBox(x: mapBox.x, y: mapBox.y)
+            }
             
             elements.append(box)
         }
@@ -92,6 +81,9 @@ final class Snake: Sprite {
             x = Double(box.node.position.x)
             y = Double(box.node.position.y)
             
+            box.x = Int(x)
+            box.y = Int(y)
+            
             box.node.run(action)
             head = false
         }
@@ -114,6 +106,44 @@ final class Snake: Sprite {
         }
         
         movingDirections += [direction]
+    }
+    
+}
+
+// MARK: - Private Functions
+
+extension Snake {
+    
+    private func createHeadBox(x: Int, y: Int) -> Box {
+        let box = createBox(x: x, y: y)
+        
+        box.node.physicsBody = SKPhysicsBody(rectangleOf: box.node.size)
+        box.node.physicsBody?.isDynamic = false
+        
+        let sprite: Game.Sprite = .snakeHead
+        
+        box.node.name = sprite.rawValue
+        box.node.physicsBody?.categoryBitMask = sprite.bitMask
+        box.node.physicsBody?.collisionBitMask = Game.Sprite.snakeBody.bitMask
+        
+        let contacts = Game.Sprite.food.bitMask | Game.Sprite.wall.bitMask | Game.Sprite.snakeBody.bitMask
+        box.node.physicsBody?.contactTestBitMask = contacts
+        
+        return box
+    }
+
+    private func createBodyBox(x: Int, y: Int) -> Box {
+        let box = createBox(x: x, y: y)
+        
+        box.node.physicsBody = SKPhysicsBody(rectangleOf: box.node.size)
+        box.node.physicsBody?.collisionBitMask = Game.Sprite.snakeHead.bitMask
+        
+        let sprite: Game.Sprite = .snakeBody
+        
+        box.node.name = sprite.rawValue
+        box.node.physicsBody?.categoryBitMask = sprite.bitMask
+        
+        return box
     }
     
 }
