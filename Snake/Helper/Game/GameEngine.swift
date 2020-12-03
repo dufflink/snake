@@ -12,7 +12,7 @@ struct GameEngine {
     var timeDelta: TimeInterval = 0
     var oldTime: TimeInterval = 0
     
-    var speed = 0.5
+    var speed = 0.4
     var canUpdate = false
     
     mutating func update(with time: TimeInterval) {

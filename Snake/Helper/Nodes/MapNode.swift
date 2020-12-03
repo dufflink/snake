@@ -13,7 +13,7 @@ final class MapNode: GameNode {
     weak var snake: Snake?
     
     var elements: [Box] = []
-    var color: UIColor = .darkGray
+    var color: UIColor = #colorLiteral(red: 0.2784800231, green: 0.2978506684, blue: 0.3323064744, alpha: 1)
     
     // MARK: - Public Properties
     

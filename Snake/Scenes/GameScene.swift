@@ -38,21 +38,25 @@ final class GameScene: SKScene {
     // MARK: - Private Fucntions
     
     private func initScene() {
+        backgroundColor = #colorLiteral(red: 0.1803921569, green: 0.2, blue: 0.2196078431, alpha: 1)
+
         physicsWorld.contactDelegate = self
         physicsWorld.gravity = .zero
+        
+        view?.ignoresSiblingOrder = true
         
         map = MapNode(scene: self)
         map.addToScene()
         
-        wall = WallFrame(map: map, color: .gray)
+        wall = WallFrame(map: map, color: #colorLiteral(red: 0.368627451, green: 0.3921568627, blue: 0.4470588235, alpha: 1))
         wall.addToScene()
 
-        snake = Snake(map: map, color: .green)
+        snake = Snake(map: map, color: #colorLiteral(red: 0.7215686275, green: 0.9490196078, blue: 0.9019607843, alpha: 1))
         snake.addToScene()
         
         map.snake = snake
 
-        food = Food(map: map, color: .red)
+        food = Food(map: map, color: #colorLiteral(red: 1, green: 0.6509803922, blue: 0.6196078431, alpha: 1))
         resetFood()
     }
     
@@ -80,8 +84,10 @@ final class GameScene: SKScene {
     
     @objc
     private func changeSnakeMovingDirection(swipeGesture: UISwipeGestureRecognizer) {
-        let newDirection = Snake.MovingDirection(swipeDirection: swipeGesture.direction)
-        snake.addMovingDirection(newDirection)
+        DispatchQueue.global(qos: .background).async {
+            let newDirection = Snake.MovingDirection(swipeDirection: swipeGesture.direction)
+            self.snake.addMovingDirection(newDirection)
+        }
     }
     
 }
@@ -93,7 +99,10 @@ extension GameScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         switch contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask {
             case Game.Sprite.snakeHead.bitMask | Game.Sprite.food.bitMask:
-                resetFood()
+                DispatchQueue.main.async {
+                    self.resetFood()
+                }
+                
                 snake.addBox()
             case Game.Sprite.wall.bitMask | Game.Sprite.snakeHead.bitMask, Game.Sprite.snakeBody.bitMask | Game.Sprite.snakeHead.bitMask:
                 restartGame()

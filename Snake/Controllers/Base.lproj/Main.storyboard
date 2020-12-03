@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,10 +19,11 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8RF-Fx-DXX" userLabel="skView" customClass="SKView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="Dark Gray"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LlX-rh-XRS"/>
+                        <color key="backgroundColor" name="Dark Gray"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8RF-Fx-DXX" secondAttribute="trailing" id="KDg-dE-Fbn"/>
                             <constraint firstItem="8RF-Fx-DXX" firstAttribute="leading" secondItem="LlX-rh-XRS" secondAttribute="leading" id="PRu-4v-vtz"/>
@@ -40,8 +41,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Dark Gray">
+            <color red="0.1803921568627451" green="0.20000000000000001" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

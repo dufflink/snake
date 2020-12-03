@@ -26,6 +26,7 @@ final class Food: Sprite {
         box.node.physicsBody?.pinned = true
         box.node.physicsBody?.categoryBitMask = sprite.bitMask
         
+        box.node.zPosition = 0.0
         elements.append(box)
     }
     

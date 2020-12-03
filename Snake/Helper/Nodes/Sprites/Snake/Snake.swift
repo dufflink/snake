@@ -19,7 +19,7 @@ final class Snake: Sprite {
     
     func addBox() {
         if let tail = elements.last {
-            let box = createBodyBox(x: tail.x + 1, y: tail.y + 1)
+            let box = createBodyBox(x: tail.x, y: tail.y)
             
             scene.addChild(box.node)
             elements.append(box)
@@ -48,44 +48,49 @@ final class Snake: Sprite {
     }
     
     override func move() {
-        var dX = 0
-        var dY = 0
-        
-        if movingDirections.count > 0 {
-            currentMovingDirection = movingDirections.removeFirst()
-        }
-        
-        switch currentMovingDirection {
-            case .up:
-                dX = 0
-                dY = step
-            case .down:
-                dX = 0
-                dY = -step
-            case .left:
-                dX = -step
-                dY = 0
-            case .right:
-                dX = step
-                dY = 0
-        }
-        
-        var x = 0.0
-        var y = 0.0
-        
-        var head = true
-        
-        for box in elements {
-            let action = head ? SKAction.move(by: CGVector(dx: dX, dy: dY), duration: 0) : SKAction.move(to: CGPoint(x: x, y: y), duration: 0)
+        DispatchQueue.global(qos: .background).async { [self] in
+            var dX = 0
+            var dY = 0
             
-            x = Double(box.node.position.x)
-            y = Double(box.node.position.y)
+            if movingDirections.count > 0 {
+                currentMovingDirection = movingDirections.removeFirst()
+            }
             
-            box.x = Int(x)
-            box.y = Int(y)
+            switch currentMovingDirection {
+                case .up:
+                    dX = 0
+                    dY = step
+                case .down:
+                    dX = 0
+                    dY = -step
+                case .left:
+                    dX = -step
+                    dY = 0
+                case .right:
+                    dX = step
+                    dY = 0
+            }
             
-            box.node.run(action)
-            head = false
+            var x = 0.0
+            var y = 0.0
+            
+            var head = true
+            
+            for box in elements {
+                let action = head ? SKAction.move(by: CGVector(dx: dX, dy: dY), duration: 0) : SKAction.move(to: CGPoint(x: x, y: y), duration: 0)
+                
+                x = Double(box.node.position.x)
+                y = Double(box.node.position.y)
+                
+                box.x = Int(x)
+                box.y = Int(y)
+                                
+                head = false
+                
+                DispatchQueue.main.async {
+                    box.node.run(action)
+                }
+            }
         }
     }
     
@@ -122,7 +127,9 @@ extension Snake {
         
         let sprite: Game.Sprite = .snakeHead
         
+        box.node.zPosition = 1.0
         box.node.name = sprite.rawValue
+        
         box.node.physicsBody?.categoryBitMask = sprite.bitMask
         box.node.physicsBody?.collisionBitMask = Game.Sprite.snakeBody.bitMask
         
