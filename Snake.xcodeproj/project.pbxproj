@@ -13,6 +13,10 @@
 		B00538D52575627B00D328F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B00538D32575627B00D328F1 /* Main.storyboard */; };
 		B00538F3257579ED00D328F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00538F2257579ED00D328F1 /* Assets.xcassets */; };
 		B00538FC25757B4600D328F1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B00538FB25757B4600D328F1 /* GameScene.sks */; };
+		B006A68F257B7F7A00DEBDB6 /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B006A68E257B7F7A00DEBDB6 /* PauseButton.swift */; };
+		B06E1746257A539C00C0EB5E /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E1745257A539C00C0EB5E /* LabelNode.swift */; };
+		B06E1752257A5A2700C0EB5E /* anotherCastle3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B06E1751257A5A2700C0EB5E /* anotherCastle3.ttf */; };
+		B06E1756257A707000C0EB5E /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E1755257A707000C0EB5E /* ButtonNode.swift */; };
 		B095D25225764B3900135F2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B095D25125764B3900135F2C /* LaunchScreen.storyboard */; };
 		B0AAFFE42576A3BA003220D8 /* WallFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAFFE32576A3BA003220D8 /* WallFrame.swift */; };
 		B0AAFFE72576A4A6003220D8 /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAFFE62576A4A6003220D8 /* Snake.swift */; };
@@ -37,6 +41,10 @@
 		B00538EE2575798300D328F1 /* Snake.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Snake.entitlements; sourceTree = "<group>"; };
 		B00538F2257579ED00D328F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B00538FB25757B4600D328F1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		B006A68E257B7F7A00DEBDB6 /* PauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
+		B06E1745257A539C00C0EB5E /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
+		B06E1751257A5A2700C0EB5E /* anotherCastle3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = anotherCastle3.ttf; sourceTree = "<group>"; };
+		B06E1755257A707000C0EB5E /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		B095D25125764B3900135F2C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0AAFFE32576A3BA003220D8 /* WallFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallFrame.swift; sourceTree = "<group>"; };
 		B0AAFFE62576A4A6003220D8 /* Snake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 		B00538DF2575629F00D328F1 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				B06E1748257A564000C0EB5E /* Fonts */,
 				B00538F2257579ED00D328F1 /* Assets.xcassets */,
 				B00538D82575627C00D328F1 /* Info.plist */,
 				B00538C92575627B00D328F1 /* AppDelegate.swift */,
@@ -110,13 +119,31 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
+		B006A68D257B7F6B00DEBDB6 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				B06E1755257A707000C0EB5E /* ButtonNode.swift */,
+				B006A68E257B7F7A00DEBDB6 /* PauseButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		B0295E9D2577861B0022480F /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				B0DF37DE25769FB300A3E453 /* GameNode.swift */,
 				B0AAFFF62576BD96003220D8 /* SpriteNode.swift */,
+				B06E1745257A539C00C0EB5E /* LabelNode.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		B06E1748257A564000C0EB5E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B06E1751257A5A2700C0EB5E /* anotherCastle3.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		B095D2552576576600135F2C /* Controllers */ = {
@@ -159,6 +186,7 @@
 		B0DF37DD25769FA000A3E453 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				B006A68D257B7F6B00DEBDB6 /* Buttons */,
 				B0295E9D2577861B0022480F /* Main */,
 				B0AAFFF92576C071003220D8 /* Sprites */,
 				B0AAFFF32576B9B4003220D8 /* MapNode.swift */,
@@ -247,6 +275,7 @@
 				B095D25225764B3900135F2C /* LaunchScreen.storyboard in Resources */,
 				B00538F3257579ED00D328F1 /* Assets.xcassets in Resources */,
 				B00538FC25757B4600D328F1 /* GameScene.sks in Resources */,
+				B06E1752257A5A2700C0EB5E /* anotherCastle3.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +290,9 @@
 				B0FA1B672577C89800310920 /* GameEngine.swift in Sources */,
 				B00538D22575627B00D328F1 /* GameViewController.swift in Sources */,
 				B0AAFFE72576A4A6003220D8 /* Snake.swift in Sources */,
+				B006A68F257B7F7A00DEBDB6 /* PauseButton.swift in Sources */,
 				B0AAFFEC2576AA21003220D8 /* Food.swift in Sources */,
+				B06E1746257A539C00C0EB5E /* LabelNode.swift in Sources */,
 				B0AAFFF72576BD96003220D8 /* SpriteNode.swift in Sources */,
 				B0AAFFF42576B9B4003220D8 /* MapNode.swift in Sources */,
 				B0AAFFF02576ABB4003220D8 /* SKScene.swift in Sources */,
@@ -269,6 +300,7 @@
 				B0DF37E42576A15800A3E453 /* Box.swift in Sources */,
 				B0DF37DF25769FB300A3E453 /* GameNode.swift in Sources */,
 				B0DF37DB25769EF900A3E453 /* Game.swift in Sources */,
+				B06E1756257A707000C0EB5E /* ButtonNode.swift in Sources */,
 				B0AAFFE42576A3BA003220D8 /* WallFrame.swift in Sources */,
 				B0FA1B6C2577CEAC00310920 /* Snake.MovingDirection.swift in Sources */,
 			);

@@ -15,7 +15,13 @@ struct GameEngine {
     var speed = 0.4
     var canUpdate = false
     
+    var onPause = false
+    
     mutating func update(with time: TimeInterval) {
+        guard !onPause else {
+            return
+        }
+        
         timeDelta += time - oldTime
         oldTime = time
         
@@ -25,6 +31,10 @@ struct GameEngine {
         } else {
             canUpdate = false
         }
+    }
+    
+    mutating func changePauseState() {
+        onPause.toggle()
     }
     
 }

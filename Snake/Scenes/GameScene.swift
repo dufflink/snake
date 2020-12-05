@@ -15,7 +15,10 @@ final class GameScene: SKScene {
     var map: MapNode!
     var snake: Snake!
     
+    var score: ScoreLabelNode!
     var engine = GameEngine()
+    
+    var pauseButton: PauseButton!
     
     override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)
@@ -28,7 +31,11 @@ final class GameScene: SKScene {
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        initScene()
+        configureScene()
+        configureNodes()
+        
+        configureButton()
+        configureScoreLabel()
     }
     
     override func didMove(to view: SKView) {
@@ -37,14 +44,38 @@ final class GameScene: SKScene {
     
     // MARK: - Private Fucntions
     
-    private func initScene() {
+    private func configureScene() {
         backgroundColor = #colorLiteral(red: 0.1803921569, green: 0.2, blue: 0.2196078431, alpha: 1)
 
         physicsWorld.contactDelegate = self
         physicsWorld.gravity = .zero
         
         view?.ignoresSiblingOrder = true
+    }
+    
+    private func configureButton() {
+        pauseButton = PauseButton()
         
+        let delta = (Game.boxSize.width * 1.5)
+        
+        let x = frame.width - delta
+        let y = frame.height - delta
+        
+        pauseButton.position = CGPoint(x: x, y: y)
+        addChild(pauseButton)
+    }
+    
+    private func configureScoreLabel() {
+        score = ScoreLabelNode()
+        
+        let x = Game.boxSize.width / 2
+        let y = frame.height - (Game.boxSize.height * 1.8)
+        
+        score.position = CGPoint(x: x, y: y)
+        addChild(score)
+    }
+    
+    private func configureNodes() {
         map = MapNode(scene: self)
         map.addToScene()
         
@@ -61,6 +92,7 @@ final class GameScene: SKScene {
     }
     
     private func restartGame() {
+        score.reset()
         resetFood()
         
         snake.reset()
@@ -103,12 +135,30 @@ extension GameScene: SKPhysicsContactDelegate {
                     self.resetFood()
                 }
                 
+                score.increment()
                 snake.addBox()
             case Game.Sprite.wall.bitMask | Game.Sprite.snakeHead.bitMask, Game.Sprite.snakeBody.bitMask | Game.Sprite.snakeHead.bitMask:
                 restartGame()
             default:
                 print("Contacts nouse objects")
         }
+    }
+    
+}
+
+extension GameScene {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        for touch in touches {
+            let location = touch.location(in: self)
+            let touchedNode = atPoint(location)
+            
+            if touchedNode.name == "Pause Button" {
+                engine.changePauseState()
+                pauseButton.setState(onPause: engine.onPause)
+            }
+         }
     }
     
 }

@@ -15,6 +15,7 @@ struct Game {
     static var boxSide = 30
     
     static var mapColumns = 12
+    static var mapRows = 0
     
 }
 
