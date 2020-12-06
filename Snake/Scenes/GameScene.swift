@@ -25,7 +25,7 @@ final class GameScene: SKScene {
         engine.update(with: currentTime)
         
         if engine.canUpdate {
-            snake.move()
+//            snake.move()
         }
     }
     
