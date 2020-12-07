@@ -9,6 +9,10 @@ import SpriteKit
 
 final class WallFrame: Sprite {
     
+    override var texture: SKTexture? {
+        return SKTexture(imageNamed: "tile")
+    }
+    
     override func reset() {
         super.reset()
         for mapBox in map.edgeBoxes {

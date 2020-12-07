@@ -19,11 +19,11 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8RF-Fx-DXX" userLabel="skView" customClass="SKView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" name="Dark Gray"/>
+                                <color key="backgroundColor" red="0.2223047018" green="0.23825848099999999" blue="0.27904713149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LlX-rh-XRS"/>
-                        <color key="backgroundColor" name="Dark Gray"/>
+                        <color key="backgroundColor" name="Medium Gray"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8RF-Fx-DXX" secondAttribute="trailing" id="KDg-dE-Fbn"/>
                             <constraint firstItem="8RF-Fx-DXX" firstAttribute="leading" secondItem="LlX-rh-XRS" secondAttribute="leading" id="PRu-4v-vtz"/>
@@ -37,12 +37,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J69-xh-FGp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-881.15942028985512" y="85.714285714285708"/>
+            <point key="canvasLocation" x="-1003" y="54"/>
         </scene>
     </scenes>
     <resources>
-        <namedColor name="Dark Gray">
-            <color red="0.1803921568627451" green="0.20000000000000001" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Medium Gray">
+            <color red="0.22455650751882211" green="0.24033802964719644" blue="0.28113562091503264" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

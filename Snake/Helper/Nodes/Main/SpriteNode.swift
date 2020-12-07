@@ -25,6 +25,10 @@ class Sprite: SpriteNode {
     var elements: [Box] = []
     var color: UIColor = .cyan
     
+    var texture: SKTexture? {
+        return nil
+    }
+    
     // MARK: - Life Cycle
     
     required init(map: MapNode, color: UIColor) {

@@ -9,6 +9,10 @@ import SpriteKit
 
 final class MapNode: GameNode {
     
+    var texture: SKTexture? {
+        return nil
+    }
+    
     unowned var scene: SKScene
     weak var snake: Snake?
     
@@ -47,7 +51,7 @@ final class MapNode: GameNode {
         }
     }
     
-    var rows: [[Box]] {
+    lazy var rows: [[Box]] = {
         var result: [[Box]] = []
         
         let columns = Game.mapColumns - 1
@@ -62,11 +66,11 @@ final class MapNode: GameNode {
         }
         
         return result
-    }
+    }()
     
     // Use `edgeBoxes` for WallFrame.init()
     
-    var edgeBoxes: [Box] {
+    lazy var edgeBoxes: [Box] = {
         var result: [Box] = []
         
         if let bottomEdge = rows.first, let topEdge = rows.last {
@@ -80,17 +84,16 @@ final class MapNode: GameNode {
         }
         
         return result
-    }
+    }()
     
     // Use `clearBoxes` for Food.init()
     
     var clearBoxes: [Box] {
-        let snakeBoxes = snake?.elements ?? []
+        let usedBoxed = (snake?.elements ?? []) + edgeBoxes
         
         return elements.filter { element in
-            !edgeBoxes.contains(where: { element == $0 }) && !snakeBoxes.contains(where: { element == $0 })
+            !usedBoxed.contains(where: { element == $0 })
         }
     }
     
 }
-

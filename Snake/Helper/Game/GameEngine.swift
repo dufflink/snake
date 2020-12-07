@@ -12,7 +12,7 @@ struct GameEngine {
     var timeDelta: TimeInterval = 0
     var oldTime: TimeInterval = 0
     
-    var speed = 0.4
+    var speed = 0.25
     var canUpdate = false
     
     var onPause = false

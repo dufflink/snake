@@ -25,7 +25,7 @@ final class GameScene: SKScene {
         engine.update(with: currentTime)
         
         if engine.canUpdate {
-//            snake.move()
+            snake.move()
         }
     }
     
@@ -45,7 +45,7 @@ final class GameScene: SKScene {
     // MARK: - Private Fucntions
     
     private func configureScene() {
-        backgroundColor = #colorLiteral(red: 0.1803921569, green: 0.2, blue: 0.2196078431, alpha: 1)
+        backgroundColor = #colorLiteral(red: 0.2223047018, green: 0.238258481, blue: 0.2790471315, alpha: 1)
 
         physicsWorld.contactDelegate = self
         physicsWorld.gravity = .zero
@@ -56,10 +56,11 @@ final class GameScene: SKScene {
     private func configureButton() {
         pauseButton = PauseButton()
         
-        let delta = (Game.boxSize.width * 1.5)
+        let dx = (Game.boxSize.width * 1.7)
+        let dy = (Game.boxSize.width * 1.5)
         
-        let x = frame.width - delta
-        let y = frame.height - delta
+        let x = frame.width - dx
+        let y = frame.height - dy
         
         pauseButton.position = CGPoint(x: x, y: y)
         addChild(pauseButton)
@@ -68,8 +69,8 @@ final class GameScene: SKScene {
     private func configureScoreLabel() {
         score = ScoreLabelNode()
         
-        let x = Game.boxSize.width / 2
-        let y = frame.height - (Game.boxSize.height * 1.8)
+        let x = Game.boxSize.width / 1.9
+        let y = frame.height - (Game.boxSize.height * 1.9)
         
         score.position = CGPoint(x: x, y: y)
         addChild(score)
@@ -100,8 +101,13 @@ final class GameScene: SKScene {
     }
     
     private func resetFood() {
-        food?.reset()
-        food?.addToScene()
+        DispatchQueue.global(qos: .background).sync {
+            food?.reset()
+            
+            DispatchQueue.main.async {
+                self.food?.addToScene()
+            }
+        }
     }
     
     private func addSwipeGestures(view: SKView) {
@@ -131,9 +137,7 @@ extension GameScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         switch contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask {
             case Game.Sprite.snakeHead.bitMask | Game.Sprite.food.bitMask:
-                DispatchQueue.main.async {
-                    self.resetFood()
-                }
+                resetFood()
                 
                 score.increment()
                 snake.addBox()

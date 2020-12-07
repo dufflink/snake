@@ -15,6 +15,8 @@ protocol GameNode: class {
     
     var color: UIColor { get }
     
+    var texture: SKTexture? { get }
+    
     init(scene: SKScene)
     
     func createBox(x: Int, y: Int, color: UIColor?) -> Box
@@ -30,6 +32,12 @@ extension GameNode {
     func createBox(x: Int, y: Int, color: UIColor? = nil) -> Box {
         let node = SKSpriteNode(color: color ?? self.color, size: Game.boxSize)
         node.position = CGPoint(x: x, y: y)
+        
+        if let texture = texture {
+            node.texture = texture
+        }
+        
+        node.colorBlendFactor = 1.0
         
         let box = Box(node: node, x: x, y: y)
         
