@@ -16,6 +16,15 @@ struct GameEngine {
     var canUpdate = false
     
     var onPause = false
+    var mode: Mode = .box
+    
+    // MARK: - Life Cycle
+    
+    init(mode: Mode) {
+        self.mode = mode
+    }
+    
+    // MARK: - Public Functions
     
     mutating func update(with time: TimeInterval) {
         guard !onPause else {
@@ -35,6 +44,19 @@ struct GameEngine {
     
     mutating func changePauseState() {
         onPause.toggle()
+    }
+    
+}
+
+// MARK: - GameEngine.Mode
+
+extension GameEngine {
+    
+    enum Mode {
+        
+        case classic
+        case box
+        
     }
     
 }

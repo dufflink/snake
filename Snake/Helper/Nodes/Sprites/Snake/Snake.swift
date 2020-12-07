@@ -9,6 +9,8 @@ import GameplayKit
 
 final class Snake: Sprite {
     
+    private let queue = OperationQueue()
+    
     override var texture: SKTexture? {
         return nil
     }
@@ -18,6 +20,14 @@ final class Snake: Sprite {
     
     private var currentMovingDirection: MovingDirection = .right
     private var movingDirections: [MovingDirection] = []
+    
+    // MARK: - Life Cycle
+    
+    required init(map: MapNode, color: UIColor) {
+        super.init(map: map, color: color)
+        queue.maxConcurrentOperationCount = 1
+        queue.qualityOfService = .background
+    }
     
     // MARK: - Public Functions
     
@@ -52,15 +62,21 @@ final class Snake: Sprite {
     }
     
     override func move() {
-        DispatchQueue.global(qos: .background).async { [self] in
+        queue.addOperation { [weak self] in
+            guard let self = self else {
+                return
+            }
+            
             var dX = 0
             var dY = 0
             
-            if movingDirections.count > 0 {
-                currentMovingDirection = movingDirections.removeFirst()
+            let step = self.step
+            
+            if self.movingDirections.count > 0 {
+                self.currentMovingDirection = self.movingDirections.removeFirst()
             }
             
-            switch currentMovingDirection {
+            switch self.currentMovingDirection {
                 case .up:
                     dX = 0
                     dY = step
@@ -80,8 +96,45 @@ final class Snake: Sprite {
             
             var head = true
             
-            for box in elements {
-                let action = head ? SKAction.move(by: CGVector(dx: dX, dy: dY), duration: 0) : SKAction.move(to: CGPoint(x: x, y: y), duration: 0)
+            for box in self.elements {
+                var action: SKAction
+                
+                let posX = Int(box.node.position.x)
+                let posY = Int(box.node.position.y)
+                
+                if head {
+                    var headX = 0
+                    var headY = 0
+                    
+                    var isOppositeSide = true
+                    let map = self.map
+                    
+                    // TODO: змейка уходит за экран
+                    if posX > map.maxX - dX {
+                        headX = map.minX
+                        headY = box.y
+                    } else if posX < map.minX {
+                        headX = map.maxX
+                        headY = box.y
+                    } else if posY < map.minY {
+                        headX = box.x
+                        headY = map.maxY
+                        // TODO: змейка уходит за экран
+                    } else if posY > map.maxY - dY {
+                        headX = box.x
+                        headY = map.minY
+                    } else {
+                        isOppositeSide = false
+                    }
+                    
+                    if isOppositeSide {
+                        action = SKAction.move(to: CGPoint(x: headX, y: headY), duration: 0)
+                    } else {
+                        action = SKAction.move(by: CGVector(dx: dX, dy: dY), duration: 0)
+                    }
+                } else {
+                    action = SKAction.move(to: CGPoint(x: x, y: y), duration: 0)
+                }
                 
                 x = Double(box.node.position.x)
                 y = Double(box.node.position.y)
@@ -99,50 +152,40 @@ final class Snake: Sprite {
     }
     
     func addMovingDirection(_ direction: MovingDirection) {
-        func validateDirection(fd: MovingDirection, sd: MovingDirection) -> Bool {
-            switch fd {
-                case .up, .down:
-                    if sd == .up || sd == .down {
-                        return false
-                    }
-                case .left, .right:
-                    if sd == .left || sd == .right {
-                        return false
-                    }
+        queue.addOperation { [weak self] in
+            guard let self = self else {
+                return
             }
             
-            return true
+            func validateDirection(fd: MovingDirection, sd: MovingDirection) -> Bool {
+                switch fd {
+                    case .up, .down:
+                        if sd == .up || sd == .down {
+                            return false
+                        }
+                    case .left, .right:
+                        if sd == .left || sd == .right {
+                            return false
+                        }
+                }
+                
+                return true
+            }
+            
+            var canAddNewDirection: Bool = true
+            
+            if self.movingDirections.count == 0 {
+                canAddNewDirection = validateDirection(fd: direction, sd: self.currentMovingDirection)
+            } else if self.movingDirections.count == 1, let sd = self.movingDirections.first {
+                canAddNewDirection = validateDirection(fd: direction, sd: sd)
+            } else {
+                return
+            }
+            
+            if canAddNewDirection {
+                self.movingDirections += [direction]
+            }
         }
-        
-        var canAddNewDirection: Bool = true
-        
-        if movingDirections.count == 0 {
-            canAddNewDirection = validateDirection(fd: direction, sd: currentMovingDirection)
-        } else if movingDirections.count == 1, let sd = movingDirections.first {
-            canAddNewDirection = validateDirection(fd: direction, sd: sd)
-        } else {
-            return
-        }
-        
-//        switch direction {
-//            case .up, .down:
-//                if currentMovingDirection == .up || currentMovingDirection == .down {
-//                    return
-//                }
-//            case .left, .right:
-//                if currentMovingDirection == .left || currentMovingDirection == .right {
-//                    return
-//                }
-//        }
-        
-//        if movingDirections.count == 2 {
-//            return
-//        }
-        
-        if canAddNewDirection {
-            movingDirections += [direction]
-        }
-        
     }
     
 }

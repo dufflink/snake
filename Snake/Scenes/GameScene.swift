@@ -16,7 +16,7 @@ final class GameScene: SKScene {
     var snake: Snake!
     
     var score: ScoreLabelNode!
-    var engine = GameEngine()
+    var engine: GameEngine!
     
     var pauseButton: PauseButton!
     
@@ -31,6 +31,8 @@ final class GameScene: SKScene {
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        engine = GameEngine(mode: .box)
+        
         configureScene()
         configureNodes()
         
@@ -76,8 +78,10 @@ final class GameScene: SKScene {
         map = MapNode(scene: self)
         map.addToScene()
         
-        wall = WallFrame(map: map, color: #colorLiteral(red: 0.368627451, green: 0.3921568627, blue: 0.4470588235, alpha: 1))
-        wall.addToScene()
+        if engine.mode == .box {
+            wall = WallFrame(map: map, color: #colorLiteral(red: 0.368627451, green: 0.3921568627, blue: 0.4470588235, alpha: 1))
+            wall.addToScene()
+        }
 
         snake = Snake(map: map, color: #colorLiteral(red: 0.7215686275, green: 0.9490196078, blue: 0.9019607843, alpha: 1))
         snake.addToScene()
@@ -97,6 +101,7 @@ final class GameScene: SKScene {
     }
     
     private func resetFood() {
+        // TODO: - Еда спавнится внутр змейки и игра зависает
         DispatchQueue.global(qos: .background).sync {
             food?.reset()
             
@@ -155,10 +160,8 @@ extension GameScene {
         let dx = newLocation.x - previousLocation.x
         let dy = newLocation.y - previousLocation.y
         
-        DispatchQueue.global(qos: .background).async {
-            if let newDirection = Snake.MovingDirection(dx: dx, dy: dy) {
-                self.snake.addMovingDirection(newDirection)
-            }
+        if let newDirection = Snake.MovingDirection(dx: dx, dy: dy) {
+            self.snake.addMovingDirection(newDirection)
         }
     }
     

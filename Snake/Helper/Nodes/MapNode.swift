@@ -25,6 +25,12 @@ final class MapNode: GameNode {
         return (elements.count - 1) / 2
     }
     
+    var minX: Int = 0
+    var maxX: Int = 0
+    
+    var minY: Int = 0
+    var maxY: Int = 0
+    
     // MARK: - Life Cycle
     
     init(scene: SKScene) {
@@ -43,10 +49,24 @@ final class MapNode: GameNode {
         let sceneHeight = scene.height - (2 * boxSide)
         Game.mapRows = sceneHeight / Game.boxSide
         
+        var i = 0
+        let boxesCount = (Game.mapRows - 1) * (Game.mapColumns - 1)
+        
         for y in stride(from: boxSide, to: sceneHeight - boxSide, by: boxSide) {
             for x in stride(from: boxSide, to: sceneWidth - boxSide, by: boxSide) {
                 let box = createBox(x: x, y: y)
                 elements.append(box)
+                if i == 0 {
+                    minX = x
+                    minY = y
+                }
+                
+                if i == boxesCount - 1 {
+                    maxX = x
+                    maxY = y
+                }
+                
+                i += 1
             }
         }
     }
