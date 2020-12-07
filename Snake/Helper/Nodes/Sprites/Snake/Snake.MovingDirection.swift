@@ -17,19 +17,29 @@ extension Snake {
         case left
         case right
         
-        init(swipeDirection: UISwipeGestureRecognizer.Direction) {
-            switch swipeDirection {
-                case .up:
-                    self = .up
-                case .down:
-                    self = .down
-                case .left:
-                    self = .left
-                case .right:
-                    self = .right
-                default:
-                    self = .up
+        init?(dx: CGFloat, dy: CGFloat) {
+            let step: CGFloat = 10.0
+            
+            let isHorizontal = dy < step && dy > -step
+            let isVertical = dx < step && dx > -step
+            
+            if dx > step && isHorizontal {
+                self = .right
+                return
+            } else if dx < -step && isHorizontal {
+                self = .left
+                return
             }
+            
+            if dy > step && isVertical {
+                self = .up
+                return
+            } else if dy < -step && isVertical {
+                self = .down
+                return
+            }
+            
+            return nil
         }
         
     }

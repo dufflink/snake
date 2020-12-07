@@ -38,10 +38,6 @@ final class GameScene: SKScene {
         configureScoreLabel()
     }
     
-    override func didMove(to view: SKView) {
-        addSwipeGestures(view: view)
-    }
-    
     // MARK: - Private Fucntions
     
     private func configureScene() {
@@ -110,24 +106,6 @@ final class GameScene: SKScene {
         }
     }
     
-    private func addSwipeGestures(view: SKView) {
-        let directions: [UISwipeGestureRecognizer.Direction] = [.up, .down, .right, .left]
-        
-        for direction in directions {
-            let swipe = UISwipeGestureRecognizer(target: self, action: #selector(changeSnakeMovingDirection(swipeGesture:)))
-            swipe.direction = direction
-            view.addGestureRecognizer(swipe)
-        }
-    }
-    
-    @objc
-    private func changeSnakeMovingDirection(swipeGesture: UISwipeGestureRecognizer) {
-        DispatchQueue.global(qos: .background).async {
-            let newDirection = Snake.MovingDirection(swipeDirection: swipeGesture.direction)
-            self.snake.addMovingDirection(newDirection)
-        }
-    }
-    
 }
 
 // MARK: - SKPhysics Contact Delegate
@@ -163,6 +141,25 @@ extension GameScene {
                 pauseButton.setState(onPause: engine.onPause)
             }
          }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        guard let touch = touches.first else {
+            return
+        }
+        
+        let newLocation = touch.location(in: self)
+        let previousLocation = touch.previousLocation(in: self)
+        
+        let dx = newLocation.x - previousLocation.x
+        let dy = newLocation.y - previousLocation.y
+        
+        DispatchQueue.global(qos: .background).async {
+            if let newDirection = Snake.MovingDirection(dx: dx, dy: dy) {
+                self.snake.addMovingDirection(newDirection)
+            }
+        }
     }
     
 }

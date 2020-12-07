@@ -99,22 +99,50 @@ final class Snake: Sprite {
     }
     
     func addMovingDirection(_ direction: MovingDirection) {
-        if movingDirections.count == 2 {
+        func validateDirection(fd: MovingDirection, sd: MovingDirection) -> Bool {
+            switch fd {
+                case .up, .down:
+                    if sd == .up || sd == .down {
+                        return false
+                    }
+                case .left, .right:
+                    if sd == .left || sd == .right {
+                        return false
+                    }
+            }
+            
+            return true
+        }
+        
+        var canAddNewDirection: Bool = true
+        
+        if movingDirections.count == 0 {
+            canAddNewDirection = validateDirection(fd: direction, sd: currentMovingDirection)
+        } else if movingDirections.count == 1, let sd = movingDirections.first {
+            canAddNewDirection = validateDirection(fd: direction, sd: sd)
+        } else {
             return
         }
         
-        switch direction {
-            case .up, .down:
-                if currentMovingDirection == .up || currentMovingDirection == .down {
-                    return
-                }
-            case .left, .right:
-                if currentMovingDirection == .left || currentMovingDirection == .right {
-                    return
-                }
+//        switch direction {
+//            case .up, .down:
+//                if currentMovingDirection == .up || currentMovingDirection == .down {
+//                    return
+//                }
+//            case .left, .right:
+//                if currentMovingDirection == .left || currentMovingDirection == .right {
+//                    return
+//                }
+//        }
+        
+//        if movingDirections.count == 2 {
+//            return
+//        }
+        
+        if canAddNewDirection {
+            movingDirections += [direction]
         }
         
-        movingDirections += [direction]
     }
     
 }
