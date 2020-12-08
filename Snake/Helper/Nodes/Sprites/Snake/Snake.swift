@@ -76,7 +76,9 @@ final class Snake: Sprite {
                 self.currentMovingDirection = self.movingDirections.removeFirst()
             }
             
-            switch self.currentMovingDirection {
+            let direction = self.currentMovingDirection
+            
+            switch direction {
                 case .up:
                     dX = 0
                     dY = step
@@ -110,17 +112,17 @@ final class Snake: Sprite {
                     let map = self.map
                     
                     // TODO: змейка уходит за экран
-                    if posX > map.maxX - dX {
+                    if posX > map.maxX - dX && direction == .right {
                         headX = map.minX
                         headY = box.y
-                    } else if posX < map.minX {
+                    } else if posX <= map.minX && direction == .left {
                         headX = map.maxX
                         headY = box.y
-                    } else if posY < map.minY {
+                    } else if posY <= map.minY && direction == .down {
                         headX = box.x
                         headY = map.maxY
                         // TODO: змейка уходит за экран
-                    } else if posY > map.maxY - dY {
+                    } else if posY > map.maxY - dY && direction == .up {
                         headX = box.x
                         headY = map.minY
                     } else {

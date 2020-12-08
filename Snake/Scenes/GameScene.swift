@@ -31,7 +31,7 @@ final class GameScene: SKScene {
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        engine = GameEngine(mode: .box)
+        engine = GameEngine(mode: .classic)
         
         configureScene()
         configureNodes()
