@@ -101,14 +101,8 @@ final class GameScene: SKScene {
     }
     
     private func resetFood() {
-        // TODO: - Еда спавнится внутр змейки и игра зависает
-        DispatchQueue.global(qos: .background).sync {
-            food?.reset()
-            
-            DispatchQueue.main.async {
-                self.food?.addToScene()
-            }
-        }
+        food?.reset()
+        food?.addToScene()
     }
     
 }

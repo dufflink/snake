@@ -10,7 +10,7 @@ import SpriteKit
 final class WallFrame: Sprite {
     
     override var texture: SKTexture? {
-        return SKTexture(imageNamed: "tile")
+        return nil
     }
     
     override func reset() {
