@@ -13,6 +13,8 @@ protocol SpriteNode: GameNode {
     
     var map: MapNode { get }
     
+    var sprite: Game.Sprite { get }
+    
     func move()
     
 }
@@ -25,8 +27,12 @@ class Sprite: SpriteNode {
     var elements: [Box] = []
     var color: UIColor = .cyan
     
-    var texture: SKTexture? {
+    var bodySize: CGSize? {
         return nil
+    }
+    
+    var sprite: Game.Sprite {
+        return .none
     }
     
     // MARK: - Life Cycle

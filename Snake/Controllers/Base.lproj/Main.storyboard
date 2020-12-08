@@ -42,7 +42,7 @@
     </scenes>
     <resources>
         <namedColor name="Medium Gray">
-            <color red="0.22455650751882211" green="0.24033802964719644" blue="0.28113562091503264" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.22352941176470589" green="0.23921568627450981" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

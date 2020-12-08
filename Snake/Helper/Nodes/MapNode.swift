@@ -9,15 +9,16 @@ import SpriteKit
 
 final class MapNode: GameNode {
     
-    var texture: SKTexture? {
-        return nil
-    }
+    var bodySize: CGSize?
+    var texture: SKTexture?
     
     unowned var scene: SKScene
     weak var snake: Snake?
     
     var elements: [Box] = []
     var color: UIColor = #colorLiteral(red: 0.2784800231, green: 0.2978506684, blue: 0.3323064744, alpha: 1)
+    
+    var mode: GameEngine.Mode
     
     // MARK: - Public Properties
     
@@ -33,8 +34,10 @@ final class MapNode: GameNode {
     
     // MARK: - Life Cycle
     
-    init(scene: SKScene) {
+    init(scene: SKScene, mode: GameEngine.Mode) {
         self.scene = scene
+        self.mode = mode
+        
         reset()
     }
     
@@ -109,7 +112,11 @@ final class MapNode: GameNode {
     // Use `clearBoxes` for Food.init()
     
     var clearBoxes: [Box] {
-        let usedBoxed = (snake?.elements ?? []) + edgeBoxes
+        var usedBoxed = snake?.elements ?? []
+        
+        if mode == .box {
+            usedBoxed += edgeBoxes
+        }
         
         return elements.filter { element in
             !usedBoxed.contains(where: { element == $0 })

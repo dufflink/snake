@@ -9,10 +9,6 @@ import GameplayKit
 
 final class Snake: Sprite {
     
-    override var texture: SKTexture? {
-        return nil
-    }
-    
     private var defaultLenght = 3
     private var step = Game.boxSide
     

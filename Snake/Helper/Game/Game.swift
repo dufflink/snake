@@ -29,8 +29,9 @@ extension Game {
         case snakeBody
         
         case food
-        case wall
+        case superFood
         
+        case wall
         case none
         
         var bitMask: UInt32 {
@@ -41,8 +42,10 @@ extension Game {
                     return 0x1 << 1
                 case .food:
                     return 0x1 << 2
-                case .wall:
+                case .superFood:
                     return 0x1 << 3
+                case .wall:
+                    return 0x1 << 4
                 case .none:
                     return 0
             }

@@ -10,6 +10,8 @@ import SpriteKit
 final class GameScene: SKScene {
     
     var food: Food?
+    var superFood: SuperFood?
+    
     var wall: WallFrame!
     
     var map: MapNode!
@@ -75,7 +77,7 @@ final class GameScene: SKScene {
     }
     
     private func configureNodes() {
-        map = MapNode(scene: self)
+        map = MapNode(scene: self, mode: engine.mode)
         map.addToScene()
         
         if engine.mode == .box {
@@ -90,6 +92,9 @@ final class GameScene: SKScene {
 
         food = Food(map: map, color: #colorLiteral(red: 1, green: 0.6509803922, blue: 0.6196078431, alpha: 1))
         resetFood()
+        
+        superFood = SuperFood(map: map, color: #colorLiteral(red: 0.9818401933, green: 0.954026401, blue: 0.8664388061, alpha: 1))
+        superFood?.addToScene()
     }
     
     private func restartGame() {
@@ -126,6 +131,8 @@ extension GameScene: SKPhysicsContactDelegate {
     }
     
 }
+
+// MARK: - Touch Events
 
 extension GameScene {
     

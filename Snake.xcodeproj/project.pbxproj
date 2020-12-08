@@ -14,6 +14,7 @@
 		B00538F3257579ED00D328F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00538F2257579ED00D328F1 /* Assets.xcassets */; };
 		B00538FC25757B4600D328F1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B00538FB25757B4600D328F1 /* GameScene.sks */; };
 		B006A68F257B7F7A00DEBDB6 /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B006A68E257B7F7A00DEBDB6 /* PauseButton.swift */; };
+		B05BAE74257F7BEA00DFAEDF /* SuperFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05BAE73257F7BEA00DFAEDF /* SuperFood.swift */; };
 		B06E1746257A539C00C0EB5E /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E1745257A539C00C0EB5E /* LabelNode.swift */; };
 		B06E1752257A5A2700C0EB5E /* anotherCastle3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B06E1751257A5A2700C0EB5E /* anotherCastle3.ttf */; };
 		B06E1756257A707000C0EB5E /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E1755257A707000C0EB5E /* ButtonNode.swift */; };
@@ -42,6 +43,7 @@
 		B00538F2257579ED00D328F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B00538FB25757B4600D328F1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		B006A68E257B7F7A00DEBDB6 /* PauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
+		B05BAE73257F7BEA00DFAEDF /* SuperFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperFood.swift; sourceTree = "<group>"; };
 		B06E1745257A539C00C0EB5E /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
 		B06E1751257A5A2700C0EB5E /* anotherCastle3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = anotherCastle3.ttf; sourceTree = "<group>"; };
 		B06E1755257A707000C0EB5E /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
@@ -138,6 +140,15 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		B05BAE72257F7BDD00DFAEDF /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				B0AAFFEB2576AA21003220D8 /* Food.swift */,
+				B05BAE73257F7BEA00DFAEDF /* SuperFood.swift */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
 		B06E1748257A564000C0EB5E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,8 +177,8 @@
 		B0AAFFF92576C071003220D8 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				B05BAE72257F7BDD00DFAEDF /* Food */,
 				B0FA1B6A2577CE9F00310920 /* Snake */,
-				B0AAFFEB2576AA21003220D8 /* Food.swift */,
 				B0AAFFE32576A3BA003220D8 /* WallFrame.swift */,
 			);
 			path = Sprites;
@@ -293,6 +304,7 @@
 				B006A68F257B7F7A00DEBDB6 /* PauseButton.swift in Sources */,
 				B0AAFFEC2576AA21003220D8 /* Food.swift in Sources */,
 				B06E1746257A539C00C0EB5E /* LabelNode.swift in Sources */,
+				B05BAE74257F7BEA00DFAEDF /* SuperFood.swift in Sources */,
 				B0AAFFF72576BD96003220D8 /* SpriteNode.swift in Sources */,
 				B0AAFFF42576B9B4003220D8 /* MapNode.swift in Sources */,
 				B0AAFFF02576ABB4003220D8 /* SKScene.swift in Sources */,

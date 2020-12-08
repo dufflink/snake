@@ -7,10 +7,15 @@
 
 import SpriteKit
 
-final class Food: Sprite {
+class Food: Sprite {
     
-    override var texture: SKTexture? {
-        return nil
+    override var sprite: Game.Sprite {
+        return .food
+    }
+    
+    override var bodySize: CGSize {
+        let side = Game.boxSide / 2
+        return CGSize(width: side, height: side)
     }
     
     override func reset() {
@@ -21,7 +26,6 @@ final class Food: Sprite {
         let mapBox = clearBoxes[randomIndex]
         let box = createBox(x: mapBox.x, y: mapBox.y)
         
-        let sprite = Game.Sprite.food
         box.node.name = sprite.rawValue
         
         box.node.physicsBody = SKPhysicsBody(rectangleOf: box.node.size)
