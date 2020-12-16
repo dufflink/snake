@@ -51,7 +51,7 @@ extension GameNode {
         }
     }
     
-    func clear() {
+    func remove() {
         elements.forEach { $0.node.removeFromParent() }
         elements.removeAll()
     }

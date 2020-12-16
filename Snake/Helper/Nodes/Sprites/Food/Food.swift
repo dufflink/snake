@@ -20,6 +20,7 @@ class Food: Sprite {
     
     override func reset() {
         super.reset()
+        
         let clearBoxes = map.clearBoxes
         let randomIndex = Int.random(in: 0 ..< clearBoxes.count)
         

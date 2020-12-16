@@ -17,10 +17,11 @@ final class GameScene: SKScene {
     var map: MapNode!
     var snake: Snake!
     
-    var score: ScoreLabelNode!
-    var engine: GameEngine!
-    
+    var scoreLabel: ScoreLabelNode!
     var pauseButton: PauseButton!
+    
+    var engine: GameEngine!
+    var gameProcess: GameProcess!
     
     override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)
@@ -34,6 +35,7 @@ final class GameScene: SKScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         engine = GameEngine(mode: .classic)
+        gameProcess = GameProcess(delegate: self)
         
         configureScene()
         configureNodes()
@@ -67,13 +69,13 @@ final class GameScene: SKScene {
     }
     
     private func configureScoreLabel() {
-        score = ScoreLabelNode()
+        scoreLabel = ScoreLabelNode()
         
         let x = Game.boxSize.width / 1.9
         let y = frame.height - (Game.boxSize.height * 1.9)
         
-        score.position = CGPoint(x: x, y: y)
-        addChild(score)
+        scoreLabel.position = CGPoint(x: x, y: y)
+        addChild(scoreLabel)
     }
     
     private func configureNodes() {
@@ -91,23 +93,43 @@ final class GameScene: SKScene {
         map.snake = snake
 
         food = Food(map: map, color: #colorLiteral(red: 1, green: 0.6509803922, blue: 0.6196078431, alpha: 1))
-        resetFood()
+        food?.respawn()
         
         superFood = SuperFood(map: map, color: #colorLiteral(red: 0.9818401933, green: 0.954026401, blue: 0.8664388061, alpha: 1))
-        superFood?.addToScene()
     }
     
     private func restartGame() {
-        score.reset()
-        resetFood()
+        scoreLabel.reset()
+        food?.respawn()
         
         snake.reset()
         snake.addToScene()
     }
     
-    private func resetFood() {
-        food?.reset()
-        food?.addToScene()
+}
+
+// MARK: - Game Process Delegate
+
+extension GameScene: GameProcessDelegate {
+    
+    func superFoodTimerDidStart() {
+        
+    }
+    
+    func superFoodTimerDidStop() {
+        superFood?.remove()
+    }
+    
+    func superFoodTimerValueDidChange(timeLeft: TimeInterval) {
+        // TODO: set progress value
+    }
+    
+    func scoreDidChange(_ score: Int) {
+        scoreLabel.set(score: score)
+    }
+    
+    func needPlaceSuperFood() {
+        superFood?.respawn()
     }
     
 }
@@ -119,9 +141,14 @@ extension GameScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         switch contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask {
             case Game.Sprite.snakeHead.bitMask | Game.Sprite.food.bitMask:
-                resetFood()
+                food?.respawn()
                 
-                score.increment()
+                gameProcess.foodDidEat()
+                snake.addBox()
+            case Game.Sprite.snakeHead.bitMask | Game.Sprite.superFood.bitMask:
+                gameProcess.superFoodDidEat()
+                
+                superFood?.remove()
                 snake.addBox()
             case Game.Sprite.wall.bitMask | Game.Sprite.snakeHead.bitMask, Game.Sprite.snakeBody.bitMask | Game.Sprite.snakeHead.bitMask:
                 restartGame()

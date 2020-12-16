@@ -9,8 +9,6 @@ import SpriteKit
 
 final class ScoreLabelNode: SKLabelNode {
     
-    private var score: Int = 0
-    
     // MARK: - Life Cycle
     
     override init() {
@@ -19,7 +17,7 @@ final class ScoreLabelNode: SKLabelNode {
         fontSize = Game.boxSize.height * 1.6
         
         horizontalAlignmentMode = .left
-        setScore()
+        reset()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,20 +26,12 @@ final class ScoreLabelNode: SKLabelNode {
     
     // MARK: - Public Functions
     
-    func increment() {
-        score += 1
-        setScore()
+    func set(score: Int) {
+        text = "Score: \(score)"
     }
     
     func reset() {
-        score = 0
-        setScore()
-    }
-    
-    // MARK: - Private Functions
-    
-    private func setScore() {
-        text = "Score: \(score)  "
+        set(score: 0)
     }
     
 }

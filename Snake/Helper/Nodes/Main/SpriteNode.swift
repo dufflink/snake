@@ -50,7 +50,12 @@ class Sprite: SpriteNode {
     func move() { }
     
     func reset() {
-        clear()
+        remove()
+    }
+    
+    func respawn() {
+        reset()
+        addToScene()
     }
     
 }
