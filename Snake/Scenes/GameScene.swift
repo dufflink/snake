@@ -23,18 +23,16 @@ final class GameScene: SKScene {
     var engine: GameEngine!
     var gameProcess: GameProcess!
     
+    var progressBar: UIProgressView!
+    
     override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)
         engine.update(with: currentTime)
-        
-        if engine.canUpdate {
-            snake.move()
-        }
     }
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        engine = GameEngine(mode: .classic)
+        engine = GameEngine(mode: .classic, delegate: self)
         gameProcess = GameProcess(delegate: self)
         
         configureScene()
@@ -44,7 +42,40 @@ final class GameScene: SKScene {
         configureScoreLabel()
     }
     
+    override func didMove(to view: SKView) {
+        super.didMove(to: view)
+        configureProgressBar()
+    }
+    
     // MARK: - Private Fucntions
+    
+    private func configureProgressBar() {
+        guard let view = view else {
+            return
+        }
+        
+        let leftPadding = scoreLabel.frame.minX
+        let rightPadding = view.frame.width - pauseButton.frame.maxX
+        
+        progressBar = UIProgressView()
+        progressBar.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(progressBar)
+        
+        NSLayoutConstraint.activate([
+            progressBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 4),
+            progressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftPadding),
+            progressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -rightPadding)
+        ])
+        
+        progressBar.tintColor = #colorLiteral(red: 0.7330129743, green: 0.8780248761, blue: 0.9025623798, alpha: 1)
+        progressBar.transform = progressBar.transform.scaledBy(x: 1, y: 2)
+        
+        progressBar.progress = 1.0
+        progressBar.isHidden = true
+        
+        view.addSubview(progressBar)
+    }
     
     private func configureScene() {
         backgroundColor = #colorLiteral(red: 0.2223047018, green: 0.238258481, blue: 0.2790471315, alpha: 1)
@@ -59,7 +90,7 @@ final class GameScene: SKScene {
         pauseButton = PauseButton()
         
         let dx = (Game.boxSize.width * 1.7)
-        let dy = (Game.boxSize.width * 1.5)
+        let dy = (Game.boxSize.width * 1.6)
         
         let x = frame.width - dx
         let y = frame.height - dy
@@ -69,10 +100,11 @@ final class GameScene: SKScene {
     }
     
     private func configureScoreLabel() {
-        scoreLabel = ScoreLabelNode()
+        let fontSize = pauseButton.frame.height + 24
+        scoreLabel = ScoreLabelNode(fontSize: fontSize)
         
         let x = Game.boxSize.width / 1.9
-        let y = frame.height - (Game.boxSize.height * 1.9)
+        let y = pauseButton.frame.minY + 8
         
         scoreLabel.position = CGPoint(x: x, y: y)
         addChild(scoreLabel)
@@ -104,6 +136,9 @@ final class GameScene: SKScene {
         
         snake.reset()
         snake.addToScene()
+        
+        superFood?.remove()
+        gameProcess.restart()
     }
     
 }
@@ -112,16 +147,21 @@ final class GameScene: SKScene {
 
 extension GameScene: GameProcessDelegate {
     
-    func superFoodTimerDidStart() {
-        
+    func superFoodTimerDidStart(savedProgress: Float) {
+        progressBar.setProgress(savedProgress, animated: false)
+        progressBar.isHidden = false
     }
     
-    func superFoodTimerDidStop() {
+    func superFoodTimerDidRemove() {
+        progressBar.isHidden = true
         superFood?.remove()
     }
     
     func superFoodTimerValueDidChange(timeLeft: TimeInterval) {
-        // TODO: set progress value
+        DispatchQueue.main.async {
+            let value = Float(timeLeft / 10)
+            self.progressBar.setProgress(value, animated: true)
+        }
     }
     
     func scoreDidChange(_ score: Int) {
@@ -130,6 +170,23 @@ extension GameScene: GameProcessDelegate {
     
     func needPlaceSuperFood() {
         superFood?.respawn()
+    }
+    
+}
+
+// MARK: - Game Engine Delegate
+
+extension GameScene: GameEngineProtocol {
+    
+    func gameEngineGameDidUpdate(_ canUpdate: Bool) {
+        if canUpdate {
+            snake.move()
+        }
+    }
+    
+    func gameEnginePauseStateDidChange(_ onPause: Bool) {
+        gameProcess.setState(onPause: onPause)
+        pauseButton.setState(onPause: onPause)
     }
     
 }
@@ -153,7 +210,7 @@ extension GameScene: SKPhysicsContactDelegate {
             case Game.Sprite.wall.bitMask | Game.Sprite.snakeHead.bitMask, Game.Sprite.snakeBody.bitMask | Game.Sprite.snakeHead.bitMask:
                 restartGame()
             default:
-                print("Contacts nouse objects")
+                print("Contacts no use objects")
         }
     }
     
@@ -171,7 +228,6 @@ extension GameScene {
             
             if touchedNode.name == "Pause Button" {
                 engine.changePauseState()
-                pauseButton.setState(onPause: engine.onPause)
             }
          }
     }

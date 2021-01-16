@@ -11,13 +11,19 @@ final class ScoreLabelNode: SKLabelNode {
     
     // MARK: - Life Cycle
     
+    convenience init(fontSize: CGFloat) {
+        self.init()
+        
+        self.fontSize = fontSize
+        reset()
+    }
+    
     override init() {
         super.init()
         fontName = "anotherCastle3"
-        fontSize = Game.boxSize.height * 1.6
+        fontSize = Game.boxSize.height * 2
         
         horizontalAlignmentMode = .left
-        reset()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,7 +33,7 @@ final class ScoreLabelNode: SKLabelNode {
     // MARK: - Public Functions
     
     func set(score: Int) {
-        text = "Score: \(score)"
+        text = "\(score)"
     }
     
     func reset() {

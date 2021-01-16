@@ -11,9 +11,9 @@ protocol GameProcessDelegate: class {
     
     func scoreDidChange(_ score: Int)
     
-    func superFoodTimerDidStart()
+    func superFoodTimerDidStart(savedProgress: Float)
     
-    func superFoodTimerDidStop()
+    func superFoodTimerDidRemove()
     
     func superFoodTimerValueDidChange(timeLeft: TimeInterval)
     
@@ -25,15 +25,16 @@ final class GameProcess {
     
     weak var delegate: GameProcessDelegate?
     
-    private var totalEatCount = 0
-    private var score = 0
+    private var totalEatCount = 4
+    private var score = 16
     
     private var foodPrice = 4
     
     private var superFoodTimer: Timer?
     private var timeStep: TimeInterval = 0.1
     
-    private var superFoodLeftTime: TimeInterval = 10.0
+    private var superFoodTimeLeft: TimeInterval = 10.0
+    private var needTimer = false
     
     // MARK: - Life Cycle
     
@@ -50,44 +51,73 @@ final class GameProcess {
         delegate?.scoreDidChange(score)
         
         if totalEatCount % 5 == 0 {
+            needTimer = true
+            
             delegate?.needPlaceSuperFood()
             startSuperFoodTimer()
         }
     }
     
+    func setState(onPause: Bool) {
+        guard needTimer else {
+            return
+        }
+        
+        if onPause  {
+            stopSuperFoodTimer()
+        } else {
+            startSuperFoodTimer()
+        }
+    }
+    
     func superFoodDidEat() {
-        let points = Int(superFoodLeftTime * 10)
+        let points = Int(superFoodTimeLeft * 10)
         score += points
         
         delegate?.scoreDidChange(score)
-        stopSuperFoodTimer()
+        removeSuperFoodTimer()
+    }
+    
+    func restart() {
+        score = 0
+        totalEatCount = 0
+        
+        removeSuperFoodTimer()
     }
     
     // MARK: - Private Functions
     
     private func startSuperFoodTimer() {
-        delegate?.superFoodTimerDidStart()
+        let savedProgress = Float(superFoodTimeLeft / 10)
+        delegate?.superFoodTimerDidStart(savedProgress: savedProgress)
         
         superFoodTimer = Timer.scheduledTimer(withTimeInterval: timeStep, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             
-            self.superFoodLeftTime -= self.timeStep
-            self.superFoodLeftTime = round(10 * self.superFoodLeftTime) / 10
+            self.superFoodTimeLeft -= self.timeStep
+            self.superFoodTimeLeft = round(10 * self.superFoodTimeLeft) / 10
             
-            self.delegate?.superFoodTimerValueDidChange(timeLeft: self.superFoodLeftTime)
+            self.delegate?.superFoodTimerValueDidChange(timeLeft: self.superFoodTimeLeft)
             
-            if self.superFoodLeftTime == 0.0 {
-                self.stopSuperFoodTimer()
+            if self.superFoodTimeLeft == 0.0 {
+                self.removeSuperFoodTimer()
             }
         }
+    }
+    
+    private func removeSuperFoodTimer() {
+        needTimer = false
+        
+        superFoodTimer?.invalidate()
+        superFoodTimer = nil
+        
+        superFoodTimeLeft = 10
+        delegate?.superFoodTimerDidRemove()
     }
     
     private func stopSuperFoodTimer() {
         superFoodTimer?.invalidate()
         superFoodTimer = nil
-        
-        superFoodLeftTime = 10
-        delegate?.superFoodTimerDidStop()
     }
     
 }

@@ -7,27 +7,44 @@
 
 import Foundation
 
-struct GameEngine {
+protocol GameEngineProtocol: class {
     
-    var timeDelta: TimeInterval = 0
-    var oldTime: TimeInterval = 0
+    func gameEngineGameDidUpdate(_ canUpdate: Bool)
     
-    var speed = 0.25
-    var canUpdate = false
+    func gameEnginePauseStateDidChange(_ onPause: Bool)
     
-    var onPause = false
+}
+
+final class GameEngine {
+    
+    weak var delegate: GameEngineProtocol?
+    
+    private var timeDelta: TimeInterval = 0
+    private var oldTime: TimeInterval = 0
+    
+    private var speed = 0.25
+    private var canUpdate = false
+    
+    private var onPause = false
+    
     var mode: Mode = .box
     
     // MARK: - Life Cycle
     
-    init(mode: Mode) {
+    init(mode: Mode, delegate: GameEngineProtocol) {
         self.mode = mode
+        self.delegate = delegate
     }
     
     // MARK: - Public Functions
     
-    mutating func update(with time: TimeInterval) {
+    func update(with time: TimeInterval) {
+        defer {
+            delegate?.gameEngineGameDidUpdate(canUpdate)
+        }
+        
         guard !onPause else {
+            canUpdate = false
             return
         }
         
@@ -42,8 +59,9 @@ struct GameEngine {
         }
     }
     
-    mutating func changePauseState() {
+    func changePauseState() {
         onPause.toggle()
+        delegate?.gameEnginePauseStateDidChange(onPause)
     }
     
 }
