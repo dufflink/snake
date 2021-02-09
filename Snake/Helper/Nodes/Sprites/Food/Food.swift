@@ -9,12 +9,12 @@ import SpriteKit
 
 class Food: Sprite {
     
-    override var sprite: Game.Sprite {
+    override var model: SpriteModel{
         return .food
     }
     
     override var bodySize: CGSize {
-        let side = Game.boxSide / 2
+        let side = Constants.boxSide / 2
         return CGSize(width: side, height: side)
     }
     
@@ -27,13 +27,13 @@ class Food: Sprite {
         let mapBox = clearBoxes[randomIndex]
         let box = createBox(x: mapBox.x, y: mapBox.y)
         
-        box.node.name = sprite.rawValue
+        box.node.name = model.rawValue
         
         box.node.physicsBody = SKPhysicsBody(rectangleOf: box.node.size)
         box.node.physicsBody?.allowsRotation = false
         
         box.node.physicsBody?.pinned = true
-        box.node.physicsBody?.categoryBitMask = sprite.bitMask
+        box.node.physicsBody?.categoryBitMask = model.bitMask
         
         box.node.zPosition = 0.0
         elements.append(box)

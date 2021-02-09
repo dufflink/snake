@@ -7,23 +7,32 @@
 
 import SpriteKit
 
+protocol GameSceneDelegate: class {
+    
+    func gameDidFinish()
+    
+}
+
 final class GameScene: SKScene {
     
-    var food: Food?
-    var superFood: SuperFood?
+    private var food: Food?
+    private var superFood: SuperFood?
     
-    var wall: WallFrame!
+    private var wall: WallFrame!
     
-    var map: MapNode!
-    var snake: Snake!
+    private var map: MapNode!
+    private var snake: Snake!
     
-    var scoreLabel: ScoreLabelNode!
-    var pauseButton: PauseButton!
+    private var scoreLabel: ScoreLabelNode!
+    private var pauseButton: PauseButton!
     
-    var engine: GameEngine!
-    var gameProcess: GameProcess!
+    private var engine: GameEngine!
+    private var gameProcess: GameProcess!
     
-    var progressBar: UIProgressView!
+    private var progressBar: UIProgressView!
+    
+    weak var specificDelegate: GameSceneDelegate?
+    var mode: GameEngine.Mode = .classic
     
     override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)
@@ -32,7 +41,7 @@ final class GameScene: SKScene {
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        engine = GameEngine(mode: .classic, delegate: self)
+        engine = GameEngine(mode: mode, delegate: self)
         gameProcess = GameProcess(delegate: self)
         
         configureScene()
@@ -89,8 +98,8 @@ final class GameScene: SKScene {
     private func configureButton() {
         pauseButton = PauseButton()
         
-        let dx = (Game.boxSize.width * 1.7)
-        let dy = (Game.boxSize.width * 1.6)
+        let dx = (Constants.boxSize.width * 1.7)
+        let dy = (Constants.boxSize.width * 1.6)
         
         let x = frame.width - dx
         let y = frame.height - dy
@@ -103,7 +112,7 @@ final class GameScene: SKScene {
         let fontSize = pauseButton.frame.height + 24
         scoreLabel = ScoreLabelNode(fontSize: fontSize)
         
-        let x = Game.boxSize.width / 1.9
+        let x = Constants.boxSize.width / 1.9
         let y = pauseButton.frame.minY + 8
         
         scoreLabel.position = CGPoint(x: x, y: y)
@@ -197,18 +206,19 @@ extension GameScene: SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         switch contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask {
-            case Game.Sprite.snakeHead.bitMask | Game.Sprite.food.bitMask:
+            case SpriteModel.snakeHead.bitMask | SpriteModel.food.bitMask:
                 food?.respawn()
                 
                 gameProcess.foodDidEat()
                 snake.addBox()
-            case Game.Sprite.snakeHead.bitMask | Game.Sprite.superFood.bitMask:
+            case SpriteModel.snakeHead.bitMask | SpriteModel.superFood.bitMask:
                 gameProcess.superFoodDidEat()
                 
                 superFood?.remove()
                 snake.addBox()
-            case Game.Sprite.wall.bitMask | Game.Sprite.snakeHead.bitMask, Game.Sprite.snakeBody.bitMask | Game.Sprite.snakeHead.bitMask:
-                restartGame()
+            case SpriteModel.wall.bitMask | SpriteModel.snakeHead.bitMask, SpriteModel.snakeBody.bitMask | SpriteModel.snakeHead.bitMask:
+                engine.changePauseState()
+                specificDelegate?.gameDidFinish()
             default:
                 print("Contacts no use objects")
         }

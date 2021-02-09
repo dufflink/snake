@@ -13,7 +13,7 @@ protocol SpriteNode: GameNode {
     
     var map: MapNode { get }
     
-    var sprite: Game.Sprite { get }
+    var model: SpriteModel { get }
     
     func move()
     
@@ -31,7 +31,7 @@ class Sprite: SpriteNode {
         return nil
     }
     
-    var sprite: Game.Sprite {
+    var model: SpriteModel {
         return .none
     }
     

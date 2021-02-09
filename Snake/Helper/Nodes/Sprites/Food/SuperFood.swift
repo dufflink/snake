@@ -9,12 +9,12 @@ import SpriteKit
 
 final class SuperFood: Food {
     
-    override var sprite: Game.Sprite {
+    override var model: SpriteModel {
         return .superFood
     }
     
     override var bodySize: CGSize {
-        return Game.boxSize
+        return Constants.boxSize
     }
     
 }

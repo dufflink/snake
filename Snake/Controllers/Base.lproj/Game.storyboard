@@ -12,14 +12,14 @@
         <!--Game View Controller-->
         <scene sceneID="uQJ-zZ-dPY">
             <objects>
-                <viewController id="8vc-Qs-hTh" customClass="GameViewController" customModule="Snake" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" id="8vc-Qs-hTh" customClass="GameViewController" customModule="Snake" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4yC-HY-k6f" userLabel="Root View">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8RF-Fx-DXX" userLabel="skView" customClass="SKView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" red="0.2223047018" green="0.23825848099999999" blue="0.27904713149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Medium Gray"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LlX-rh-XRS"/>

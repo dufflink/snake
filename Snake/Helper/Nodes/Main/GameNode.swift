@@ -32,7 +32,7 @@ protocol GameNode: class {
 extension GameNode {
     
     func createBox(x: Int, y: Int, color: UIColor? = nil) -> Box {
-        let node = SKSpriteNode(color: color ?? self.color, size: bodySize ?? Game.boxSize)
+        let node = SKSpriteNode(color: color ?? self.color, size: bodySize ?? Constants.boxSize)
         node.position = CGPoint(x: x, y: y)
         
         if let texture = texture {

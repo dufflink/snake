@@ -13,7 +13,7 @@ final class WallFrame: Sprite {
         super.reset()
         for mapBox in map.edgeBoxes {
             let box = createBox(x: mapBox.x, y: mapBox.y)
-            let sprite = Game.Sprite.wall
+            let sprite = SpriteModel.wall
             
             box.node.name = sprite.rawValue
             

@@ -10,7 +10,7 @@ import GameplayKit
 final class Snake: Sprite {
     
     private var defaultLenght = 3
-    private var step = Game.boxSide
+    private var step = Constants.boxSide
     
     private var currentMovingDirection: MovingDirection = .right
     private var movingDirections: [MovingDirection] = []
@@ -171,15 +171,15 @@ extension Snake {
         box.node.physicsBody = SKPhysicsBody(rectangleOf: box.node.size)
         box.node.physicsBody?.isDynamic = false
         
-        let sprite: Game.Sprite = .snakeHead
+        let sprite: SpriteModel = .snakeHead
         
         box.node.zPosition = 1.0
         box.node.name = sprite.rawValue
         
         box.node.physicsBody?.categoryBitMask = sprite.bitMask
-        box.node.physicsBody?.collisionBitMask = Game.Sprite.snakeBody.bitMask
+        box.node.physicsBody?.collisionBitMask = SpriteModel.snakeBody.bitMask
         
-        let contacts = Game.Sprite.food.bitMask | Game.Sprite.wall.bitMask | Game.Sprite.snakeBody.bitMask
+        let contacts = SpriteModel.food.bitMask | SpriteModel.wall.bitMask | SpriteModel.snakeBody.bitMask
         box.node.physicsBody?.contactTestBitMask = contacts
         
         return box
@@ -189,9 +189,9 @@ extension Snake {
         let box = createBox(x: x, y: y)
         
         box.node.physicsBody = SKPhysicsBody(rectangleOf: box.node.size)
-        box.node.physicsBody?.collisionBitMask = Game.Sprite.snakeHead.bitMask
+        box.node.physicsBody?.collisionBitMask = SpriteModel.snakeHead.bitMask
         
-        let sprite: Game.Sprite = .snakeBody
+        let sprite: SpriteModel = .snakeBody
         
         box.node.name = sprite.rawValue
         box.node.physicsBody?.categoryBitMask = sprite.bitMask
