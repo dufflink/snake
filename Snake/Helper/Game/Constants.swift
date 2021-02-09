@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-struct Game {
+struct Constants {
     
     // MARK: - Global Properties
     
@@ -21,7 +21,7 @@ struct Game {
 
 // MARK: - Sprite
 
-extension Game {
+extension Constants {
     
     enum Sprite: String {
         
