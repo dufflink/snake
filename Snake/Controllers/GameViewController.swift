@@ -15,23 +15,18 @@ class GameViewController: UIViewController {
         return .lightContent
     }
     
-    private(set) var mode: GameEngine.Mode = .classic
-    
     // MARK: - Life Cycle
     
-    static func create(mode: GameEngine.Mode) -> UIViewController? {
+    static func create() -> UIViewController? {
         let storyboard = UIStoryboard(name: "Game", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "GameViewController") as? GameViewController
-        controller?.mode = mode
         return controller
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let scene = GameScene(size: skView.frame.size)
-        
         scene.specificDelegate = self
-        scene.mode = mode
         
         skView.presentScene(scene)
         skView.ignoresSiblingOrder = true

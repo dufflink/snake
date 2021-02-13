@@ -14,6 +14,12 @@
 		B00538F3257579ED00D328F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00538F2257579ED00D328F1 /* Assets.xcassets */; };
 		B00538FC25757B4600D328F1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B00538FB25757B4600D328F1 /* GameScene.sks */; };
 		B006A68F257B7F7A00DEBDB6 /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B006A68E257B7F7A00DEBDB6 /* PauseButton.swift */; };
+		B04AECDD25D7B9D9007ECCA3 /* SView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AECDC25D7B9D9007ECCA3 /* SView.swift */; };
+		B04AECE025D7BA4C007ECCA3 /* GameModeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04AECDF25D7BA4C007ECCA3 /* GameModeButton.xib */; };
+		B04AECE325D7BCE0007ECCA3 /* GameModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AECE225D7BCE0007ECCA3 /* GameModeButton.swift */; };
+		B04AECE725D7BF53007ECCA3 /* GameModeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AECE625D7BF53007ECCA3 /* GameModeStackView.swift */; };
+		B04AECF725D7CC8C007ECCA3 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AECF625D7CC8C007ECCA3 /* Options.swift */; };
+		B04AECFA25D7CCC8007ECCA3 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AECF925D7CCC8007ECCA3 /* GameMode.swift */; };
 		B05BAE74257F7BEA00DFAEDF /* SuperFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05BAE73257F7BEA00DFAEDF /* SuperFood.swift */; };
 		B06E1746257A539C00C0EB5E /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E1745257A539C00C0EB5E /* LabelNode.swift */; };
 		B06E1752257A5A2700C0EB5E /* anotherCastle3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B06E1751257A5A2700C0EB5E /* anotherCastle3.ttf */; };
@@ -48,6 +54,12 @@
 		B00538F2257579ED00D328F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B00538FB25757B4600D328F1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		B006A68E257B7F7A00DEBDB6 /* PauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
+		B04AECDC25D7B9D9007ECCA3 /* SView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SView.swift; sourceTree = "<group>"; };
+		B04AECDF25D7BA4C007ECCA3 /* GameModeButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameModeButton.xib; sourceTree = "<group>"; };
+		B04AECE225D7BCE0007ECCA3 /* GameModeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeButton.swift; sourceTree = "<group>"; };
+		B04AECE625D7BF53007ECCA3 /* GameModeStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeStackView.swift; sourceTree = "<group>"; };
+		B04AECF625D7CC8C007ECCA3 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
+		B04AECF925D7CCC8007ECCA3 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		B05BAE73257F7BEA00DFAEDF /* SuperFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperFood.swift; sourceTree = "<group>"; };
 		B06E1745257A539C00C0EB5E /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
 		B06E1751257A5A2700C0EB5E /* anotherCastle3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = anotherCastle3.ttf; sourceTree = "<group>"; };
@@ -101,6 +113,7 @@
 		B00538C82575627B00D328F1 /* Snake */ = {
 			isa = PBXGroup;
 			children = (
+				B04AECDB25D7B9CC007ECCA3 /* Views */,
 				B0DF37D925769EED00A3E453 /* Helper */,
 				B095D2552576576600135F2C /* Controllers */,
 				B00538FA25757B2700D328F1 /* Scenes */,
@@ -150,6 +163,17 @@
 				B0B5AF32258A8AA900399C71 /* ProgressNode.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		B04AECDB25D7B9CC007ECCA3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B04AECDC25D7B9D9007ECCA3 /* SView.swift */,
+				B04AECDF25D7BA4C007ECCA3 /* GameModeButton.xib */,
+				B04AECE225D7BCE0007ECCA3 /* GameModeButton.swift */,
+				B04AECE625D7BF53007ECCA3 /* GameModeStackView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B05BAE72257F7BDD00DFAEDF /* Food */ = {
@@ -226,6 +250,8 @@
 				B0DF37E32576A15800A3E453 /* Box.swift */,
 				B0B5AF2F258A736B00399C71 /* GameProcess.swift */,
 				B0A6106B25D25A4B0056D78A /* SpriteModel.swift */,
+				B04AECF625D7CC8C007ECCA3 /* Options.swift */,
+				B04AECF925D7CCC8007ECCA3 /* GameMode.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -303,6 +329,7 @@
 				B0A6106425D252A50056D78A /* Menu.storyboard in Resources */,
 				B00538FC25757B4600D328F1 /* GameScene.sks in Resources */,
 				B06E1752257A5A2700C0EB5E /* anotherCastle3.ttf in Resources */,
+				B04AECE025D7BA4C007ECCA3 /* GameModeButton.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,17 +342,22 @@
 			files = (
 				B00538D02575627B00D328F1 /* GameScene.swift in Sources */,
 				B0FA1B672577C89800310920 /* GameEngine.swift in Sources */,
+				B04AECF725D7CC8C007ECCA3 /* Options.swift in Sources */,
 				B0A6106C25D25A4B0056D78A /* SpriteModel.swift in Sources */,
 				B00538D22575627B00D328F1 /* GameViewController.swift in Sources */,
+				B04AECDD25D7B9D9007ECCA3 /* SView.swift in Sources */,
 				B0AAFFE72576A4A6003220D8 /* Snake.swift in Sources */,
 				B006A68F257B7F7A00DEBDB6 /* PauseButton.swift in Sources */,
 				B0AAFFEC2576AA21003220D8 /* Food.swift in Sources */,
 				B06E1746257A539C00C0EB5E /* LabelNode.swift in Sources */,
 				B05BAE74257F7BEA00DFAEDF /* SuperFood.swift in Sources */,
+				B04AECE325D7BCE0007ECCA3 /* GameModeButton.swift in Sources */,
 				B0AAFFF72576BD96003220D8 /* SpriteNode.swift in Sources */,
 				B0AAFFF42576B9B4003220D8 /* MapNode.swift in Sources */,
+				B04AECFA25D7CCC8007ECCA3 /* GameMode.swift in Sources */,
 				B0A6106725D256AE0056D78A /* MenuViewController.swift in Sources */,
 				B0AAFFF02576ABB4003220D8 /* SKScene.swift in Sources */,
+				B04AECE725D7BF53007ECCA3 /* GameModeStackView.swift in Sources */,
 				B00538CA2575627B00D328F1 /* AppDelegate.swift in Sources */,
 				B0B5AF30258A736B00399C71 /* GameProcess.swift in Sources */,
 				B0DF37E42576A15800A3E453 /* Box.swift in Sources */,

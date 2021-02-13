@@ -25,7 +25,7 @@ enum SpriteModel: String {
             case .food:
                 return 0x1 << 2
             case .superFood:
-                return 0x2 << 3
+                return 0x3 << 3
             case .wall:
                 return 0x1 << 4
             case .none:

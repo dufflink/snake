@@ -27,12 +27,11 @@ final class GameEngine {
     
     private var onPause = false
     
-    var mode: Mode = .box
+    var mode: GameMode = Options.gameMode
     
     // MARK: - Life Cycle
     
-    init(mode: Mode, delegate: GameEngineProtocol) {
-        self.mode = mode
+    init(delegate: GameEngineProtocol) {
         self.delegate = delegate
     }
     
@@ -62,19 +61,6 @@ final class GameEngine {
     func changePauseState() {
         onPause.toggle()
         delegate?.gameEnginePauseStateDidChange(onPause)
-    }
-    
-}
-
-// MARK: - GameEngine.Mode
-
-extension GameEngine {
-    
-    enum Mode {
-        
-        case classic
-        case box
-        
     }
     
 }

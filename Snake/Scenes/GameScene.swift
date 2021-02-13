@@ -32,7 +32,8 @@ final class GameScene: SKScene {
     private var progressBar: UIProgressView!
     
     weak var specificDelegate: GameSceneDelegate?
-    var mode: GameEngine.Mode = .classic
+
+    // MARK: - Life Cycle
     
     override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)
@@ -41,7 +42,7 @@ final class GameScene: SKScene {
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        engine = GameEngine(mode: mode, delegate: self)
+        engine = GameEngine(delegate: self)
         gameProcess = GameProcess(delegate: self)
         
         configureScene()
@@ -216,7 +217,7 @@ extension GameScene: SKPhysicsContactDelegate {
                 
                 superFood?.remove()
                 snake.addBox()
-            case SpriteModel.wall.bitMask | SpriteModel.snakeHead.bitMask, SpriteModel.snakeBody.bitMask | SpriteModel.snakeHead.bitMask:
+            case SpriteModel.snakeHead.bitMask | SpriteModel.wall.bitMask, SpriteModel.snakeBody.bitMask | SpriteModel.snakeHead.bitMask:
                 engine.changePauseState()
                 specificDelegate?.gameDidFinish()
             default:
