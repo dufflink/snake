@@ -15,6 +15,17 @@ final class Snake: Sprite {
     private var currentMovingDirection: MovingDirection = .right
     private var movingDirections: [MovingDirection] = []
     
+    var prevBoxes: [Box] {
+        var boxes: [Box] = []
+        
+        elements.forEach { element in
+            let box = Box(node: SKSpriteNode(), x: element.prevX ?? 0, y: element.prevX ?? 0)
+            boxes.append(box)
+        }
+        
+        return boxes
+    }
+    
     // MARK: - Public Functions
     
     func addBox() {
@@ -116,6 +127,9 @@ final class Snake: Sprite {
             
             x = Double(box.node.position.x)
             y = Double(box.node.position.y)
+            
+            box.prevX = box.x
+            box.prevY = box.y
             
             box.x = Int(x)
             box.y = Int(y)

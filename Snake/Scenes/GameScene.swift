@@ -110,7 +110,7 @@ final class GameScene: SKScene {
     }
     
     private func configureScoreLabel() {
-        let fontSize = pauseButton.frame.height + 24
+        let fontSize = pauseButton.frame.height + 10
         scoreLabel = ScoreLabelNode(fontSize: fontSize)
         
         let x = Constants.boxSize.width / 1.9

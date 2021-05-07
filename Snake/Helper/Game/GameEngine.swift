@@ -22,7 +22,7 @@ final class GameEngine {
     private var timeDelta: TimeInterval = 0
     private var oldTime: TimeInterval = 0
     
-    private var speed = 0.25
+    private var speed = 0.24
     private var canUpdate = false
     
     private var onPause = false

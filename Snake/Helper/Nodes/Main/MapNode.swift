@@ -59,6 +59,7 @@ final class MapNode: GameNode {
             for x in stride(from: boxSide, to: sceneWidth - boxSide, by: boxSide) {
                 let box = createBox(x: x, y: y)
                 elements.append(box)
+                
                 if i == 0 {
                     minX = x
                     minY = y
@@ -113,6 +114,9 @@ final class MapNode: GameNode {
     
     var clearBoxes: [Box] {
         var usedBoxed = snake?.elements ?? []
+        let prevBoxes = snake?.prevBoxes ?? []
+        
+        usedBoxed += prevBoxes
         
         if mode == .box {
             usedBoxed += edgeBoxes

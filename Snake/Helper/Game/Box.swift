@@ -14,6 +14,9 @@ final class Box: Equatable {
     var x: Int
     var y: Int
     
+    var prevX: Int?
+    var prevY: Int?
+    
     init(node: SKSpriteNode, x: Int, y: Int) {
         self.node = node
         

@@ -33,9 +33,9 @@ enum GameMode {
     var color: UIColor? {
         switch self {
             case .classic:
-                return UIColor(named: "Blue")
+                return Design.Color.blue.value
             case .box:
-                return UIColor(named: "Blue")
+                return Design.Color.blue.value
         }
     }
     
