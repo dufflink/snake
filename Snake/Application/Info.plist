@@ -25,6 +25,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>anotherCastle3.ttf</string>
+		<string>kroftsmann5.ttf</string>
 	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>

@@ -20,7 +20,7 @@ final class ScoreLabelNode: SKLabelNode {
     
     override init() {
         super.init()
-        fontName = "anotherCastle3"
+        fontName = Design.fontName
         fontSize = Constants.boxSize.height * 2
         
         horizontalAlignmentMode = .left

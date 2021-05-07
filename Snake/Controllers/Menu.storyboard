@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="anotherCastle3.ttf">
-            <string>AnotherCastle3</string>
+        <array key="kroftsmann5.ttf">
+            <string>Kroftsmann</string>
         </array>
     </customFonts>
     <scenes>
@@ -23,33 +23,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="IpX-OO-LzB">
-                                <rect key="frame" x="32" y="300.66666666666663" width="364" height="324.66666666666663"/>
+                                <rect key="frame" x="32" y="313" width="364" height="300"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fH0-73-jMD">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="12.666666666666666"/>
-                                        <fontDescription key="fontDescription" name="AnotherCastle3" family="AnotherCastle3" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fH0-73-jMD" customClass="SLabel" customModule="Snake" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="28"/>
+                                        <fontDescription key="fontDescription" name="Kroftsmann" family="Kroftsmann" pointSize="24"/>
                                         <color key="textColor" name="Yellow"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="17"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pz7-SU-lw7" userLabel="Modes Stack View" customClass="GameModeStackView" customModule="Snake" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28.666666666666629" width="364" height="150"/>
+                                        <rect key="frame" x="0.0" y="44" width="364" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" placeholder="YES" id="LgP-6c-AAu"/>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rxi-lA-0SE" userLabel="Spacer">
-                                        <rect key="frame" x="0.0" y="194.66666666666663" width="364" height="64"/>
+                                        <rect key="frame" x="0.0" y="210" width="364" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="64" id="aDd-nl-9vx"/>
+                                            <constraint firstAttribute="height" constant="24" id="aDd-nl-9vx"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1LT-2e-GcP">
-                                        <rect key="frame" x="0.0" y="274.66666666666669" width="364" height="50"/>
+                                        <rect key="frame" x="0.0" y="250" width="364" height="50"/>
                                         <color key="backgroundColor" name="Dark Gray"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="if5-dt-lqZ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AnotherCastle3" family="AnotherCastle3" pointSize="38"/>
+                                        <fontDescription key="fontDescription" name="Kroftsmann" family="Kroftsmann" pointSize="38"/>
                                         <state key="normal" title="Start game">
                                             <color key="titleColor" name="Yellow"/>
                                         </state>
@@ -78,6 +83,11 @@
             <point key="canvasLocation" x="232" y="134"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="fH0-73-jMD">
+            <size key="intrinsicContentSize" width="132.66666666666666" height="28"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="Dark Gray">
             <color red="0.17647058823529413" green="0.18823529411764706" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
