@@ -15,7 +15,7 @@ final class MenuViewController: UIViewController {
         super.viewDidLoad()
         configure()
     }
-        
+    
     @IBAction func startGameButtonDidPress(_ sender: Any) {
         guard let gameViewController = GameViewController.create() else {
             return

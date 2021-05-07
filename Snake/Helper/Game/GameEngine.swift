@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol GameEngineProtocol: class {
+protocol GameEngineProtocol: AnyObject {
     
     func gameEngineGameDidUpdate(_ canUpdate: Bool)
     

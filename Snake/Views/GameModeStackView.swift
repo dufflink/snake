@@ -7,14 +7,13 @@
 
 import UIKit
 
-protocol GameModeStackViewDelegate: class {
+protocol GameModeStackViewDelegate: AnyObject {
     
     func modeDidChanged(_ selectedMode: GameMode)
     
 }
 
-@IBDesignable
-final class GameModeStackView: UIStackView {
+@IBDesignable final class GameModeStackView: UIStackView {
     
     private var buttons: [GameModeButton] = []
     private var currentIndex: Int = 1

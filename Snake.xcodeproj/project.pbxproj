@@ -13,6 +13,8 @@
 		B00538D52575627B00D328F1 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B00538D32575627B00D328F1 /* Game.storyboard */; };
 		B00538F3257579ED00D328F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00538F2257579ED00D328F1 /* Assets.xcassets */; };
 		B00538FC25757B4600D328F1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B00538FB25757B4600D328F1 /* GameScene.sks */; };
+		B005D1C92645A25600DB4A58 /* kroftsmann5.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B005D1C82645A25600DB4A58 /* kroftsmann5.ttf */; };
+		B005D1CB2645A47600DB4A58 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B005D1CA2645A47600DB4A58 /* MenuButton.swift */; };
 		B006A68F257B7F7A00DEBDB6 /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B006A68E257B7F7A00DEBDB6 /* PauseButton.swift */; };
 		B04AECDD25D7B9D9007ECCA3 /* SView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AECDC25D7B9D9007ECCA3 /* SView.swift */; };
 		B04AECE025D7BA4C007ECCA3 /* GameModeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04AECDF25D7BA4C007ECCA3 /* GameModeButton.xib */; };
@@ -20,7 +22,6 @@
 		B04AECE725D7BF53007ECCA3 /* GameModeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AECE625D7BF53007ECCA3 /* GameModeStackView.swift */; };
 		B04AECF725D7CC8C007ECCA3 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AECF625D7CC8C007ECCA3 /* Options.swift */; };
 		B04AECFA25D7CCC8007ECCA3 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AECF925D7CCC8007ECCA3 /* GameMode.swift */; };
-		B04AECFD25D7D67B007ECCA3 /* kroftsmann5.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B04AECFC25D7D67B007ECCA3 /* kroftsmann5.ttf */; };
 		B04AED0125D7D69D007ECCA3 /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AED0025D7D69D007ECCA3 /* Design.swift */; };
 		B04AED0525D7D776007ECCA3 /* SLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AED0425D7D776007ECCA3 /* SLabel.swift */; };
 		B05BAE74257F7BEA00DFAEDF /* SuperFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05BAE73257F7BEA00DFAEDF /* SuperFood.swift */; };
@@ -55,6 +56,8 @@
 		B00538EE2575798300D328F1 /* Snake.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Snake.entitlements; sourceTree = "<group>"; };
 		B00538F2257579ED00D328F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B00538FB25757B4600D328F1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		B005D1C82645A25600DB4A58 /* kroftsmann5.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kroftsmann5.ttf; sourceTree = "<group>"; };
+		B005D1CA2645A47600DB4A58 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		B006A68E257B7F7A00DEBDB6 /* PauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		B04AECDC25D7B9D9007ECCA3 /* SView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SView.swift; sourceTree = "<group>"; };
 		B04AECDF25D7BA4C007ECCA3 /* GameModeButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameModeButton.xib; sourceTree = "<group>"; };
@@ -62,7 +65,6 @@
 		B04AECE625D7BF53007ECCA3 /* GameModeStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeStackView.swift; sourceTree = "<group>"; };
 		B04AECF625D7CC8C007ECCA3 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		B04AECF925D7CCC8007ECCA3 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
-		B04AECFC25D7D67B007ECCA3 /* kroftsmann5.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kroftsmann5.ttf; sourceTree = "<group>"; };
 		B04AED0025D7D69D007ECCA3 /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		B04AED0425D7D776007ECCA3 /* SLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLabel.swift; sourceTree = "<group>"; };
 		B05BAE73257F7BEA00DFAEDF /* SuperFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperFood.swift; sourceTree = "<group>"; };
@@ -130,7 +132,7 @@
 		B00538DF2575629F00D328F1 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				B06E1748257A564000C0EB5E /* Fonts */,
+				B005D1C72645A1CC00DB4A58 /* Fonts */,
 				B00538F2257579ED00D328F1 /* Assets.xcassets */,
 				B00538D82575627C00D328F1 /* Info.plist */,
 				B00538C92575627B00D328F1 /* AppDelegate.swift */,
@@ -146,6 +148,14 @@
 				B00538FB25757B4600D328F1 /* GameScene.sks */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B005D1C72645A1CC00DB4A58 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B005D1C82645A25600DB4A58 /* kroftsmann5.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		B006A68D257B7F6B00DEBDB6 /* Buttons */ = {
@@ -176,6 +186,7 @@
 				B04AECDF25D7BA4C007ECCA3 /* GameModeButton.xib */,
 				B04AECE225D7BCE0007ECCA3 /* GameModeButton.swift */,
 				B04AECE625D7BF53007ECCA3 /* GameModeStackView.swift */,
+				B005D1CA2645A47600DB4A58 /* MenuButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,14 +215,6 @@
 				B05BAE73257F7BEA00DFAEDF /* SuperFood.swift */,
 			);
 			path = Food;
-			sourceTree = "<group>";
-		};
-		B06E1748257A564000C0EB5E /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				B04AECFC25D7D67B007ECCA3 /* kroftsmann5.ttf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		B095D2552576576600135F2C /* Controllers */ = {
@@ -346,9 +349,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B00538D52575627B00D328F1 /* Game.storyboard in Resources */,
+				B005D1C92645A25600DB4A58 /* kroftsmann5.ttf in Resources */,
 				B095D25225764B3900135F2C /* LaunchScreen.storyboard in Resources */,
 				B00538F3257579ED00D328F1 /* Assets.xcassets in Resources */,
-				B04AECFD25D7D67B007ECCA3 /* kroftsmann5.ttf in Resources */,
 				B0A6106425D252A50056D78A /* Menu.storyboard in Resources */,
 				B00538FC25757B4600D328F1 /* GameScene.sks in Resources */,
 				B04AECE025D7BA4C007ECCA3 /* GameModeButton.xib in Resources */,
@@ -381,6 +384,7 @@
 				B0A6106725D256AE0056D78A /* MenuViewController.swift in Sources */,
 				B0AAFFF02576ABB4003220D8 /* SKScene.swift in Sources */,
 				B04AECE725D7BF53007ECCA3 /* GameModeStackView.swift in Sources */,
+				B005D1CB2645A47600DB4A58 /* MenuButton.swift in Sources */,
 				B00538CA2575627B00D328F1 /* AppDelegate.swift in Sources */,
 				B0B5AF30258A736B00399C71 /* GameProcess.swift in Sources */,
 				B0DF37E42576A15800A3E453 /* Box.swift in Sources */,

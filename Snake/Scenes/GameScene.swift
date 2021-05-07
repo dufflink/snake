@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-protocol GameSceneDelegate: class {
+protocol GameSceneDelegate: AnyObject {
     
     func gameDidFinish()
     
@@ -78,7 +78,7 @@ final class GameScene: SKScene {
             progressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -rightPadding)
         ])
         
-        progressBar.tintColor = #colorLiteral(red: 0.7330129743, green: 0.8780248761, blue: 0.9025623798, alpha: 1)
+        progressBar.tintColor = Design.Color.blue.value
         progressBar.transform = progressBar.transform.scaledBy(x: 1, y: 2)
         
         progressBar.progress = 1.0
@@ -88,7 +88,7 @@ final class GameScene: SKScene {
     }
     
     private func configureScene() {
-        backgroundColor = #colorLiteral(red: 0.2223047018, green: 0.238258481, blue: 0.2790471315, alpha: 1)
+        backgroundColor = Design.Color.background.value
 
         physicsWorld.contactDelegate = self
         physicsWorld.gravity = .zero
@@ -125,19 +125,19 @@ final class GameScene: SKScene {
         map.addToScene()
         
         if engine.mode == .box {
-            wall = WallFrame(map: map, color: #colorLiteral(red: 0.368627451, green: 0.3921568627, blue: 0.4470588235, alpha: 1))
+            wall = WallFrame(map: map, color: Design.Color.lightGray.value)
             wall.addToScene()
         }
 
-        snake = Snake(map: map, color: #colorLiteral(red: 0.7215686275, green: 0.9490196078, blue: 0.9019607843, alpha: 1))
+        snake = Snake(map: map, color: Design.Color.green.value)
         snake.addToScene()
         
         map.snake = snake
 
-        food = Food(map: map, color: #colorLiteral(red: 1, green: 0.6509803922, blue: 0.6196078431, alpha: 1))
+        food = Food(map: map, color: Design.Color.red.value)
         food?.respawn()
         
-        superFood = SuperFood(map: map, color: #colorLiteral(red: 0.9818401933, green: 0.954026401, blue: 0.8664388061, alpha: 1))
+        superFood = SuperFood(map: map, color: Design.Color.yellow.value)
     }
     
     private func restartGame() {

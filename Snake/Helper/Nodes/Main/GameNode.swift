@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-protocol GameNode: class {
+protocol GameNode: AnyObject {
     
     var scene: SKScene { get }
     

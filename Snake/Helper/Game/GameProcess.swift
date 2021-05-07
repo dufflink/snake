@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol GameProcessDelegate: class {
+protocol GameProcessDelegate: AnyObject {
     
     func scoreDidChange(_ score: Int)
     
