@@ -26,7 +26,7 @@ final class GameProcess {
     weak var delegate: GameProcessDelegate?
     
     private var totalEatCount = 0
-    private var score = 0
+    var score = 0
     
     private var foodPrice = 4
     

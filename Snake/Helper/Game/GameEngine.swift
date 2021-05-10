@@ -11,8 +11,6 @@ protocol GameEngineProtocol: AnyObject {
     
     func gameEngineGameDidUpdate(_ canUpdate: Bool)
     
-    func gameEnginePauseStateDidChange(_ onPause: Bool)
-    
 }
 
 final class GameEngine {
@@ -58,9 +56,8 @@ final class GameEngine {
         }
     }
     
-    func changePauseState() {
-        onPause.toggle()
-        delegate?.gameEnginePauseStateDidChange(onPause)
+    func setPauseState(_ onPause: Bool) {
+        self.onPause = onPause
     }
     
 }

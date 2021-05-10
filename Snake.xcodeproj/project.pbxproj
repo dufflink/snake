@@ -16,6 +16,8 @@
 		B005D1C92645A25600DB4A58 /* kroftsmann5.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B005D1C82645A25600DB4A58 /* kroftsmann5.ttf */; };
 		B005D1CB2645A47600DB4A58 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B005D1CA2645A47600DB4A58 /* MenuButton.swift */; };
 		B006A68F257B7F7A00DEBDB6 /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B006A68E257B7F7A00DEBDB6 /* PauseButton.swift */; };
+		B02C63A5264944A500EC17C0 /* PauseMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02C63A4264944A500EC17C0 /* PauseMenu.storyboard */; };
+		B02C63A72649465F00EC17C0 /* PauseMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02C63A62649465F00EC17C0 /* PauseMenuViewController.swift */; };
 		B04AECDD25D7B9D9007ECCA3 /* SView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AECDC25D7B9D9007ECCA3 /* SView.swift */; };
 		B04AECE025D7BA4C007ECCA3 /* GameModeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04AECDF25D7BA4C007ECCA3 /* GameModeButton.xib */; };
 		B04AECE325D7BCE0007ECCA3 /* GameModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AECE225D7BCE0007ECCA3 /* GameModeButton.swift */; };
@@ -59,6 +61,8 @@
 		B005D1C82645A25600DB4A58 /* kroftsmann5.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kroftsmann5.ttf; sourceTree = "<group>"; };
 		B005D1CA2645A47600DB4A58 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		B006A68E257B7F7A00DEBDB6 /* PauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
+		B02C63A4264944A500EC17C0 /* PauseMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PauseMenu.storyboard; sourceTree = "<group>"; };
+		B02C63A62649465F00EC17C0 /* PauseMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseMenuViewController.swift; sourceTree = "<group>"; };
 		B04AECDC25D7B9D9007ECCA3 /* SView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SView.swift; sourceTree = "<group>"; };
 		B04AECDF25D7BA4C007ECCA3 /* GameModeButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameModeButton.xib; sourceTree = "<group>"; };
 		B04AECE225D7BCE0007ECCA3 /* GameModeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeButton.swift; sourceTree = "<group>"; };
@@ -224,6 +228,8 @@
 				B00538D32575627B00D328F1 /* Game.storyboard */,
 				B0A6106325D252A50056D78A /* Menu.storyboard */,
 				B0A6106625D256AE0056D78A /* MenuViewController.swift */,
+				B02C63A4264944A500EC17C0 /* PauseMenu.storyboard */,
+				B02C63A62649465F00EC17C0 /* PauseMenuViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 				B0A6106425D252A50056D78A /* Menu.storyboard in Resources */,
 				B00538FC25757B4600D328F1 /* GameScene.sks in Resources */,
 				B04AECE025D7BA4C007ECCA3 /* GameModeButton.xib in Resources */,
+				B02C63A5264944A500EC17C0 /* PauseMenu.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +376,7 @@
 				B04AED0125D7D69D007ECCA3 /* Design.swift in Sources */,
 				B0FA1B672577C89800310920 /* GameEngine.swift in Sources */,
 				B04AECF725D7CC8C007ECCA3 /* Options.swift in Sources */,
+				B02C63A72649465F00EC17C0 /* PauseMenuViewController.swift in Sources */,
 				B0A6106C25D25A4B0056D78A /* SpriteModel.swift in Sources */,
 				B00538D22575627B00D328F1 /* GameViewController.swift in Sources */,
 				B04AECDD25D7B9D9007ECCA3 /* SView.swift in Sources */,

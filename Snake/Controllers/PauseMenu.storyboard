@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pause Menu View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="PauseMenuViewController" id="Y6W-OH-hqX" customClass="PauseMenuViewController" customModule="Snake" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" userLabel="Root View">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="evX-zQ-Np6">
+                                <rect key="frame" x="32" y="405" width="350" height="86"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jte-ZC-LsW">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imD-9N-7UT" userLabel="Restart Button" customClass="MenuButton" customModule="Snake" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="171" height="40"/>
+                                                <color key="backgroundColor" name="Dark Gray"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="glD-Q9-qbs"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="Restart"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isResponsive" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="restartButtonDidPress:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tqZ-Tl-rPE"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hkP-fU-KBi" userLabel="Exit Button" customClass="MenuButton" customModule="Snake" customModuleProvider="target">
+                                                <rect key="frame" x="179" y="0.0" width="171" height="40"/>
+                                                <color key="backgroundColor" name="Dark Gray"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="n4f-CO-TbC"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="Exit"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isResponsive" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="exitButtonDidPress:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hpD-bw-7Lt"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="hkP-fU-KBi" firstAttribute="width" secondItem="imD-9N-7UT" secondAttribute="width" id="wjH-1J-KF0"/>
+                                        </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELi-2Z-iba" userLabel="Resume Button" customClass="MenuButton" customModule="Snake" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="46" width="350" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="wtc-zw-bhP"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="Resume"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isResponsive" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="resumeButtonDidPress:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rgJ-ge-Q1Y"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jpo-Wz-8e4" userLabel="Score View">
+                                <rect key="frame" x="8" y="52" width="398" height="345"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12435345345000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="1" translatesAutoresizingMaskIntoConstraints="NO" id="qnX-rA-3pP" userLabel="Score Label" customClass="SLabel" customModule="Snake" customModuleProvider="target">
+                                        <rect key="frame" x="32" y="8" width="334" height="329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="90"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qnX-rA-3pP" secondAttribute="trailing" constant="32" id="Ao5-DA-KTS"/>
+                                    <constraint firstItem="qnX-rA-3pP" firstAttribute="top" secondItem="Jpo-Wz-8e4" secondAttribute="top" constant="8" id="H25-bP-4Uw"/>
+                                    <constraint firstAttribute="bottom" secondItem="qnX-rA-3pP" secondAttribute="bottom" constant="8" id="dSq-pF-myG"/>
+                                    <constraint firstItem="qnX-rA-3pP" firstAttribute="leading" secondItem="Jpo-Wz-8e4" secondAttribute="leading" constant="32" id="uVU-CJ-lNZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" red="0.22352941176470589" green="0.23921568627450981" blue="0.27843137254901962" alpha="0.80252526991860162" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="evX-zQ-Np6" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="1KF-U7-tLU"/>
+                            <constraint firstItem="Jpo-Wz-8e4" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="6lg-XK-lPg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Jpo-Wz-8e4" secondAttribute="trailing" constant="8" id="CyD-AZ-sRF"/>
+                            <constraint firstItem="evX-zQ-Np6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="Ood-YS-lgk"/>
+                            <constraint firstItem="evX-zQ-Np6" firstAttribute="top" secondItem="Jpo-Wz-8e4" secondAttribute="bottom" constant="8" id="UpL-JQ-VEo"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="evX-zQ-Np6" secondAttribute="trailing" constant="32" id="iMa-nr-xEc"/>
+                            <constraint firstItem="Jpo-Wz-8e4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="tll-PR-kGY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resumeButton" destination="ELi-2Z-iba" id="Lfk-Gd-hwT"/>
+                        <outlet property="scoreLabel" destination="qnX-rA-3pP" id="gLY-bc-cfe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="91"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="qnX-rA-3pP">
+            <size key="intrinsicContentSize" width="573" height="83"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="Dark Gray">
+            <color red="0.17647058823529413" green="0.18823529411764706" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

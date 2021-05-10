@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="IpX-OO-LzB">
-                                <rect key="frame" x="32" y="336" width="364" height="254.33333333333337"/>
+                                <rect key="frame" x="32" y="303" width="364" height="320.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fH0-73-jMD" customClass="SLabel" customModule="Snake" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="22.333333333333332"/>
@@ -43,7 +43,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4CI-1S-uR8" userLabel="Start Game Button" customClass="MenuButton" customModule="Snake" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="204.33333333333337" width="364" height="50"/>
+                                        <rect key="frame" x="0.0" y="204.33333333333331" width="364" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="ePb-7R-SzR"/>
                                         </constraints>
@@ -56,6 +56,18 @@
                                         <connections>
                                             <action selector="startGameButtonDidPress:" destination="RX4-AN-agc" eventType="touchUpInside" id="Pgu-02-b5c"/>
                                         </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Cq-lt-DpK" userLabel="Records Button" customClass="MenuButton" customModule="Snake" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="270.33333333333337" width="364" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2Yg-J5-eqv"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="28"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="Records"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                             </stackView>

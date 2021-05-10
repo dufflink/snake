@@ -9,7 +9,11 @@ import SpriteKit
 
 protocol GameSceneDelegate: AnyObject {
     
-    func gameDidFinish()
+    func gameDidFinish(score: Int)
+    
+    func gameDidPause(score: Int)
+    
+    func gameDidResume()
     
 }
 
@@ -55,6 +59,35 @@ final class GameScene: SKScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         configureProgressBar()
+    }
+    
+    // MARK: - Public Functions
+    
+    func restartGame() {
+        scoreLabel.reset()
+        food?.respawn()
+        
+        snake.reset()
+        snake.addToScene()
+        
+        superFood?.remove()
+        gameProcess.restart()
+    }
+    
+    func resumeGame() {
+        gameProcess.setState(onPause: false)
+        engine.setPauseState(false)
+        
+        specificDelegate?.gameDidResume()
+    }
+    
+    func setInterfaceHiddenState(_ isHidden: Bool) {
+        let alpha: CGFloat = isHidden ? 0 : 1
+        
+        UIView.animate(withDuration: 0.25) {
+            self.pauseButton.alpha = alpha
+            self.scoreLabel.alpha = alpha
+        }
     }
     
     // MARK: - Private Fucntions
@@ -139,16 +172,25 @@ final class GameScene: SKScene {
         
         superFood = SuperFood(map: map, color: Design.Color.yellow.value)
     }
+
+    private func pauseGame() {
+        setInterfaceHiddenState(true)
+        
+        gameProcess.setState(onPause: true)
+        engine.setPauseState(true)
+        
+        let score = gameProcess.score
+        specificDelegate?.gameDidPause(score: score)
+    }
     
-    private func restartGame() {
-        scoreLabel.reset()
-        food?.respawn()
+    private func finishGame() {
+        setInterfaceHiddenState(true)
         
-        snake.reset()
-        snake.addToScene()
+        gameProcess.setState(onPause: true)
+        engine.setPauseState(true)
         
-        superFood?.remove()
-        gameProcess.restart()
+        let score = gameProcess.score
+        specificDelegate?.gameDidFinish(score: score)
     }
     
 }
@@ -194,11 +236,6 @@ extension GameScene: GameEngineProtocol {
         }
     }
     
-    func gameEnginePauseStateDidChange(_ onPause: Bool) {
-        gameProcess.setState(onPause: onPause)
-        pauseButton.setState(onPause: onPause)
-    }
-    
 }
 
 // MARK: - SKPhysics Contact Delegate
@@ -218,8 +255,7 @@ extension GameScene: SKPhysicsContactDelegate {
                 superFood?.remove()
                 snake.addBox()
             case SpriteModel.snakeHead.bitMask | SpriteModel.wall.bitMask, SpriteModel.snakeBody.bitMask | SpriteModel.snakeHead.bitMask:
-                engine.changePauseState()
-                specificDelegate?.gameDidFinish()
+                finishGame()
             default:
                 print("Contacts no use objects")
         }
@@ -238,7 +274,7 @@ extension GameScene {
             let touchedNode = atPoint(location)
             
             if touchedNode.name == "Pause Button" {
-                engine.changePauseState()
+                pauseGame()
             }
          }
     }

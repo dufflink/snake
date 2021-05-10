@@ -17,7 +17,7 @@ final class MenuViewController: UIViewController {
     }
     
     @IBAction func startGameButtonDidPress(_ sender: Any) {
-        guard let gameViewController = GameViewController.create() else {
+        guard let gameViewController = GameViewController.instance() else {
             return
         }
         
