@@ -19,7 +19,7 @@ final class Snake: Sprite {
         var boxes: [Box] = []
         
         elements.forEach { element in
-            let box = Box(node: SKSpriteNode(), x: element.prevX ?? 0, y: element.prevX ?? 0)
+            let box = Box(node: SKSpriteNode(), x: element.prevX ?? 0, y: element.prevY ?? 0)
             boxes.append(box)
         }
         
