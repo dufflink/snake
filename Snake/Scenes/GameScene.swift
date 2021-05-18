@@ -5,6 +5,7 @@
 //  Created by Maxim Skorynin on 30.11.2020.
 //
 
+import Haptico
 import SpriteKit
 
 protocol GameSceneDelegate: AnyObject {
@@ -184,6 +185,7 @@ final class GameScene: SKScene {
     }
     
     private func finishGame() {
+        Haptico.shared().generate(.error)
         setInterfaceHiddenState(true)
         
         gameProcess.setState(onPause: true)

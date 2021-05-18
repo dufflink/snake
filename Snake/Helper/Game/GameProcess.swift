@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Haptico
 
 protocol GameProcessDelegate: AnyObject {
     
@@ -51,10 +52,13 @@ final class GameProcess {
         delegate?.scoreDidChange(score)
         
         if totalEatCount % 5 == 0 {
+            Haptico.shared().generate(.warning)
             needTimer = true
             
             delegate?.needPlaceSuperFood()
             startSuperFoodTimer()
+        } else {
+            Haptico.shared().generate(.light)
         }
     }
     
@@ -71,6 +75,8 @@ final class GameProcess {
     }
     
     func superFoodDidEat() {
+        Haptico.shared().generate(.light)
+        
         let points = Int(superFoodTimeLeft * 10)
         score += points
         

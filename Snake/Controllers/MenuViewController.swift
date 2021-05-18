@@ -5,6 +5,7 @@
 //  Created by Maxim Skorynin on 09.02.2021.
 //
 
+import Haptico
 import UIKit
 
 final class MenuViewController: UIViewController {
@@ -40,7 +41,10 @@ final class MenuViewController: UIViewController {
 extension MenuViewController: GameModeStackViewDelegate {
     
     func modeDidChanged(_ selectedMode: GameMode) {
-        Options.gameMode = selectedMode
+        if Options.gameMode != selectedMode {
+            Haptico.shared().generate(.medium)
+            Options.gameMode = selectedMode
+        }
     }
     
 }

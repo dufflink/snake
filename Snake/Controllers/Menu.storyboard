@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="IpX-OO-LzB">
-                                <rect key="frame" x="32" y="303" width="364" height="320.33333333333326"/>
+                                <rect key="frame" x="32" y="300" width="364" height="326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fH0-73-jMD" customClass="SLabel" customModule="Snake" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="22.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="28"/>
                                         <fontDescription key="fontDescription" name="Kroftsmann" family="Kroftsmann" pointSize="24"/>
                                         <color key="textColor" name="Yellow"/>
                                         <nil key="highlightedColor"/>
@@ -37,13 +37,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pz7-SU-lw7" userLabel="Modes Stack View" customClass="GameModeStackView" customModule="Snake" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="38.333333333333314" width="364" height="150"/>
+                                        <rect key="frame" x="0.0" y="44" width="364" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" placeholder="YES" id="LgP-6c-AAu"/>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4CI-1S-uR8" userLabel="Start Game Button" customClass="MenuButton" customModule="Snake" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="204.33333333333331" width="364" height="50"/>
+                                        <rect key="frame" x="0.0" y="210" width="364" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="ePb-7R-SzR"/>
                                         </constraints>
@@ -58,7 +58,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Cq-lt-DpK" userLabel="Records Button" customClass="MenuButton" customModule="Snake" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="270.33333333333337" width="364" height="50"/>
+                                        <rect key="frame" x="0.0" y="276" width="364" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="2Yg-J5-eqv"/>
                                         </constraints>
@@ -66,7 +66,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
                                                 <real key="value" value="28"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="Records"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="Leaderboard"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
@@ -92,7 +92,7 @@
     </scenes>
     <designables>
         <designable name="fH0-73-jMD">
-            <size key="intrinsicContentSize" width="100.66666666666667" height="22.333333333333332"/>
+            <size key="intrinsicContentSize" width="132.66666666666666" height="28"/>
         </designable>
     </designables>
     <resources>
