@@ -28,6 +28,10 @@
 		B04AED0125D7D69D007ECCA3 /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AED0025D7D69D007ECCA3 /* Design.swift */; };
 		B04AED0525D7D776007ECCA3 /* SLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AED0425D7D776007ECCA3 /* SLabel.swift */; };
 		B05BAE74257F7BEA00DFAEDF /* SuperFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05BAE73257F7BEA00DFAEDF /* SuperFood.swift */; };
+		B067F6E92654F03500564DE9 /* SoundHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B067F6E82654F03500564DE9 /* SoundHelper.swift */; };
+		B067F6EB2654F21400564DE9 /* SoundHelper.Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B067F6EA2654F21400564DE9 /* SoundHelper.Sound.swift */; };
+		B067F6EF2654F2F700564DE9 /* superfood.wav in Resources */ = {isa = PBXBuildFile; fileRef = B067F6ED2654F2F700564DE9 /* superfood.wav */; };
+		B067F6F02654F2F700564DE9 /* food.wav in Resources */ = {isa = PBXBuildFile; fileRef = B067F6EE2654F2F700564DE9 /* food.wav */; };
 		B06E1746257A539C00C0EB5E /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E1745257A539C00C0EB5E /* LabelNode.swift */; };
 		B06E1756257A707000C0EB5E /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E1755257A707000C0EB5E /* ButtonNode.swift */; };
 		B07F8336264EA3480023F5F0 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07F8335264EA3480023F5F0 /* GameKit.framework */; };
@@ -77,6 +81,10 @@
 		B04AED0025D7D69D007ECCA3 /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		B04AED0425D7D776007ECCA3 /* SLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLabel.swift; sourceTree = "<group>"; };
 		B05BAE73257F7BEA00DFAEDF /* SuperFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperFood.swift; sourceTree = "<group>"; };
+		B067F6E82654F03500564DE9 /* SoundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelper.swift; sourceTree = "<group>"; };
+		B067F6EA2654F21400564DE9 /* SoundHelper.Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelper.Sound.swift; sourceTree = "<group>"; };
+		B067F6ED2654F2F700564DE9 /* superfood.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = superfood.wav; sourceTree = "<group>"; };
+		B067F6EE2654F2F700564DE9 /* food.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = food.wav; sourceTree = "<group>"; };
 		B06E1745257A539C00C0EB5E /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
 		B06E1755257A707000C0EB5E /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		B07F8335264EA3480023F5F0 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -146,6 +154,7 @@
 		B00538DF2575629F00D328F1 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				B067F6EC2654F2B000564DE9 /* Sounds */,
 				B005D1C72645A1CC00DB4A58 /* Fonts */,
 				B00538F2257579ED00D328F1 /* Assets.xcassets */,
 				B00538D82575627C00D328F1 /* Info.plist */,
@@ -231,6 +240,15 @@
 			path = Food;
 			sourceTree = "<group>";
 		};
+		B067F6EC2654F2B000564DE9 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				B067F6EE2654F2F700564DE9 /* food.wav */,
+				B067F6ED2654F2F700564DE9 /* superfood.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		B07F8333264EA22A0023F5F0 /* GameCenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +328,8 @@
 				B0A6106B25D25A4B0056D78A /* SpriteModel.swift */,
 				B04AECF625D7CC8C007ECCA3 /* Options.swift */,
 				B04AECF925D7CCC8007ECCA3 /* GameMode.swift */,
+				B067F6E82654F03500564DE9 /* SoundHelper.swift */,
+				B067F6EA2654F21400564DE9 /* SoundHelper.Sound.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -392,6 +412,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B067F6F02654F2F700564DE9 /* food.wav in Resources */,
 				B00538D52575627B00D328F1 /* Game.storyboard in Resources */,
 				B005D1C92645A25600DB4A58 /* kroftsmann5.ttf in Resources */,
 				B095D25225764B3900135F2C /* LaunchScreen.storyboard in Resources */,
@@ -400,6 +421,7 @@
 				B00538FC25757B4600D328F1 /* GameScene.sks in Resources */,
 				B04AECE025D7BA4C007ECCA3 /* GameModeButton.xib in Resources */,
 				B02C63A5264944A500EC17C0 /* PauseMenu.storyboard in Resources */,
+				B067F6EF2654F2F700564DE9 /* superfood.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +487,7 @@
 				B0AAFFEC2576AA21003220D8 /* Food.swift in Sources */,
 				B06E1746257A539C00C0EB5E /* LabelNode.swift in Sources */,
 				B05BAE74257F7BEA00DFAEDF /* SuperFood.swift in Sources */,
+				B067F6EB2654F21400564DE9 /* SoundHelper.Sound.swift in Sources */,
 				B04AECE325D7BCE0007ECCA3 /* GameModeButton.swift in Sources */,
 				B0AAFFF72576BD96003220D8 /* SpriteNode.swift in Sources */,
 				B0AAFFF42576B9B4003220D8 /* MapNode.swift in Sources */,
@@ -473,6 +496,7 @@
 				B0AAFFF02576ABB4003220D8 /* SKScene.swift in Sources */,
 				B04AECE725D7BF53007ECCA3 /* GameModeStackView.swift in Sources */,
 				B005D1CB2645A47600DB4A58 /* MenuButton.swift in Sources */,
+				B067F6E92654F03500564DE9 /* SoundHelper.swift in Sources */,
 				B00538CA2575627B00D328F1 /* AppDelegate.swift in Sources */,
 				B0B5AF30258A736B00399C71 /* GameProcess.swift in Sources */,
 				B0DF37E42576A15800A3E453 /* Box.swift in Sources */,

@@ -48,7 +48,7 @@ final class GameScene: SKScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         engine = GameEngine(delegate: self)
-        gameProcess = GameProcess(delegate: self)
+        gameProcess = GameProcess(node: self, delegate: self)
         
         configureScene()
         configureNodes()

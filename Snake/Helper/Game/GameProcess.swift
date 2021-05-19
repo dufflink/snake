@@ -5,7 +5,7 @@
 //  Created by Maxim Skorynin on 16.12.2020.
 //
 
-import Foundation
+import SpriteKit
 import Haptico
 
 protocol GameProcessDelegate: AnyObject {
@@ -26,6 +26,8 @@ final class GameProcess {
     
     weak var delegate: GameProcessDelegate?
     
+    private let soundHelper: SoundHelper
+    
     private var totalEatCount = 0
     var score = 0
     
@@ -39,8 +41,9 @@ final class GameProcess {
     
     // MARK: - Life Cycle
     
-    init(delegate: GameProcessDelegate) {
+    init(node: SKNode, delegate: GameProcessDelegate) {
         self.delegate = delegate
+        soundHelper = SoundHelper(node: node)
     }
     
     // MARK: - Public Functions
@@ -52,12 +55,15 @@ final class GameProcess {
         delegate?.scoreDidChange(score)
         
         if totalEatCount % 5 == 0 {
+            soundHelper.playSuperFoodSound()
             Haptico.shared().generate(.warning)
+            
             needTimer = true
             
             delegate?.needPlaceSuperFood()
             startSuperFoodTimer()
         } else {
+            soundHelper.playFoodSound()
             Haptico.shared().generate(.light)
         }
     }
@@ -75,6 +81,7 @@ final class GameProcess {
     }
     
     func superFoodDidEat() {
+        soundHelper.playFoodSound()
         Haptico.shared().generate(.light)
         
         let points = Int(superFoodTimeLeft * 10)
