@@ -26,9 +26,8 @@ import UIKit
         backgroundColor = Design.Color.darkGrey.value
         
         labelView = SLabel()
-        labelView?.font = Design.getFont(size: 28)
         
-        labelView?.textColor = Design.Color.yellow.value
+        labelView?.font = Design.getFont(size: 28)
         labelView?.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(labelView)
@@ -42,6 +41,7 @@ import UIKit
     
     private func updateProperties() {
         textLabel = nil ?? textLabel
+        textColor = nil ?? textColor
     }
     
     // MARK: - Inspected Properties
@@ -49,6 +49,12 @@ import UIKit
     @IBInspectable var textLabel: String? {
         didSet {
             labelView?.text = textLabel
+        }
+    }
+    
+    @IBInspectable var textColor: UIColor? = Design.Color.yellow.value {
+        didSet {
+            labelView?.textColor = textColor
         }
     }
     

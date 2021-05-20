@@ -32,7 +32,7 @@
                     <rect key="frame" x="0.0" y="95" width="150" height="55"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lq-Om-dbp" userLabel="Label View" customClass="SLabel" customModule="Snake" customModuleProvider="target">
-                            <rect key="frame" x="41" y="17.5" width="68" height="20.5"/>
+                            <rect key="frame" x="41" y="14.5" width="68" height="26.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <color key="textColor" name="Dark Gray"/>
                             <nil key="highlightedColor"/>
@@ -73,12 +73,12 @@
     </objects>
     <designables>
         <designable name="1Lq-Om-dbp">
-            <size key="intrinsicContentSize" width="68" height="20.5"/>
+            <size key="intrinsicContentSize" width="68.5" height="26.5"/>
         </designable>
     </designables>
     <resources>
         <namedColor name="Dark Gray">
-            <color red="0.17647058823529413" green="0.18823529411764706" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.17254901960784313" green="0.18431372549019609" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

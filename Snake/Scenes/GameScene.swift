@@ -30,6 +30,7 @@ final class GameScene: SKScene {
     
     private var scoreLabel: ScoreLabelNode!
     private var pauseButton: PauseButton!
+    private var soundButton: SoundButton!
     
     private var engine: GameEngine!
     private var gameProcess: GameProcess!
@@ -53,7 +54,7 @@ final class GameScene: SKScene {
         configureScene()
         configureNodes()
         
-        configureButton()
+        configureActionButtons()
         configureScoreLabel()
     }
     
@@ -88,6 +89,7 @@ final class GameScene: SKScene {
         UIView.animate(withDuration: 0.25) {
             self.pauseButton.alpha = alpha
             self.scoreLabel.alpha = alpha
+            self.soundButton.alpha = alpha
         }
     }
     
@@ -130,7 +132,7 @@ final class GameScene: SKScene {
         view?.ignoresSiblingOrder = true
     }
     
-    private func configureButton() {
+    private func configureActionButtons() {
         pauseButton = PauseButton()
         
         let dx = (Constants.boxSize.width * 1.7)
@@ -141,6 +143,14 @@ final class GameScene: SKScene {
         
         pauseButton.position = CGPoint(x: x, y: y)
         addChild(pauseButton)
+        
+        soundButton = SoundButton(soundIsEnabled: true)
+        
+        let x1 = pauseButton.position.x - soundButton.frame.width - 8
+        let y1 = pauseButton.position.y
+        
+        soundButton.position = CGPoint(x: x1, y: y1)
+        addChild(soundButton)
     }
     
     private func configureScoreLabel() {
@@ -226,6 +236,10 @@ extension GameScene: GameProcessDelegate {
         superFood?.respawn()
     }
     
+    func soundStateDidChange(_ isOnSound: Bool) {
+        soundButton.setSoundState(isEnabled: isOnSound)
+    }
+    
 }
 
 // MARK: - Game Engine Delegate
@@ -275,8 +289,15 @@ extension GameScene {
             let location = touch.location(in: self)
             let touchedNode = atPoint(location)
             
-            if touchedNode.name == "Pause Button" {
-                pauseGame()
+            guard let buttonName = ButtonNode.Name(rawValue: touchedNode.name ?? "") else {
+                return
+            }
+            
+            switch buttonName {
+                case .pause:
+                    pauseGame()
+                case .sound:
+                    gameProcess.changeSoundState()
             }
          }
     }

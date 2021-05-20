@@ -27,6 +27,8 @@
 		B04AECFA25D7CCC8007ECCA3 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AECF925D7CCC8007ECCA3 /* GameMode.swift */; };
 		B04AED0125D7D69D007ECCA3 /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AED0025D7D69D007ECCA3 /* Design.swift */; };
 		B04AED0525D7D776007ECCA3 /* SLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AED0425D7D776007ECCA3 /* SLabel.swift */; };
+		B057841926566AA8003E933B /* SoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057841826566AA8003E933B /* SoundButton.swift */; };
+		B057841B26566D9D003E933B /* ButtonNode.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057841A26566D9D003E933B /* ButtonNode.Name.swift */; };
 		B05BAE74257F7BEA00DFAEDF /* SuperFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05BAE73257F7BEA00DFAEDF /* SuperFood.swift */; };
 		B067F6E92654F03500564DE9 /* SoundHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B067F6E82654F03500564DE9 /* SoundHelper.swift */; };
 		B067F6EB2654F21400564DE9 /* SoundHelper.Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B067F6EA2654F21400564DE9 /* SoundHelper.Sound.swift */; };
@@ -80,6 +82,8 @@
 		B04AECF925D7CCC8007ECCA3 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		B04AED0025D7D69D007ECCA3 /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		B04AED0425D7D776007ECCA3 /* SLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLabel.swift; sourceTree = "<group>"; };
+		B057841826566AA8003E933B /* SoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundButton.swift; sourceTree = "<group>"; };
+		B057841A26566D9D003E933B /* ButtonNode.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.Name.swift; sourceTree = "<group>"; };
 		B05BAE73257F7BEA00DFAEDF /* SuperFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperFood.swift; sourceTree = "<group>"; };
 		B067F6E82654F03500564DE9 /* SoundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelper.swift; sourceTree = "<group>"; };
 		B067F6EA2654F21400564DE9 /* SoundHelper.Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelper.Sound.swift; sourceTree = "<group>"; };
@@ -185,7 +189,9 @@
 			isa = PBXGroup;
 			children = (
 				B06E1755257A707000C0EB5E /* ButtonNode.swift */,
+				B057841A26566D9D003E933B /* ButtonNode.Name.swift */,
 				B006A68E257B7F7A00DEBDB6 /* PauseButton.swift */,
+				B057841826566AA8003E933B /* SoundButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -491,6 +497,7 @@
 				B04AECE325D7BCE0007ECCA3 /* GameModeButton.swift in Sources */,
 				B0AAFFF72576BD96003220D8 /* SpriteNode.swift in Sources */,
 				B0AAFFF42576B9B4003220D8 /* MapNode.swift in Sources */,
+				B057841926566AA8003E933B /* SoundButton.swift in Sources */,
 				B04AECFA25D7CCC8007ECCA3 /* GameMode.swift in Sources */,
 				B0A6106725D256AE0056D78A /* MenuViewController.swift in Sources */,
 				B0AAFFF02576ABB4003220D8 /* SKScene.swift in Sources */,
@@ -507,6 +514,7 @@
 				B04AED0525D7D776007ECCA3 /* SLabel.swift in Sources */,
 				B0AAFFE42576A3BA003220D8 /* WallFrame.swift in Sources */,
 				B0FA1B6C2577CEAC00310920 /* Snake.MovingDirection.swift in Sources */,
+				B057841B26566D9D003E933B /* ButtonNode.Name.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

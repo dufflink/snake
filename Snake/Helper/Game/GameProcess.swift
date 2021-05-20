@@ -20,6 +20,8 @@ protocol GameProcessDelegate: AnyObject {
     
     func needPlaceSuperFood()
     
+    func soundStateDidChange(_ isOnSound: Bool)
+    
 }
 
 final class GameProcess {
@@ -43,7 +45,8 @@ final class GameProcess {
     
     init(node: SKNode, delegate: GameProcessDelegate) {
         self.delegate = delegate
-        soundHelper = SoundHelper(node: node)
+        // TODO: взять значение из настроек
+        soundHelper = SoundHelper(node: node, soundState: true)
     }
     
     // MARK: - Public Functions
@@ -96,6 +99,12 @@ final class GameProcess {
         totalEatCount = 0
         
         removeSuperFoodTimer()
+    }
+    
+    func changeSoundState() {
+        soundHelper.changeSoundState()
+        // TODO: Сохранять состояние
+        delegate?.soundStateDidChange(soundHelper.isOnSound)
     }
     
     // MARK: - Private Functions

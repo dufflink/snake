@@ -9,21 +9,14 @@ import SpriteKit
 
 final class PauseButton: ButtonNode {
     
-    let pauseTexture = SKTexture(imageNamed: "Pause")
-    let startTexture = SKTexture(imageNamed: "Start")
-    
     init() {
         super.init(imageName: "Pause")
-        name = "Pause Button"
+        name = Name.pause.rawValue
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         print("ButtonNode. Required init did call")
-    }
-    
-    func setState(onPause: Bool) {
-        texture = onPause ? startTexture : pauseTexture
     }
     
 }
