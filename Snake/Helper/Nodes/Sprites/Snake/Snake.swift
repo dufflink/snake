@@ -135,11 +135,9 @@ final class Snake: Sprite {
             box.y = Int(y)
                             
             head = false
-            
-            DispatchQueue.main.async {
-                box.node.run(action)
-            }
+            box.node.run(action)
         }
+        
     }
     
     func addMovingDirection(_ direction: MovingDirection) {
