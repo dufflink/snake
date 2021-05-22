@@ -41,11 +41,11 @@ protocol GameModeStackViewDelegate: AnyObject {
         spacing = 8
         
         buttons = [
-            GameModeButton(gameMode: .box, action: { [weak self] in
+            GameModeButton(gameMode: .wall, action: { [weak self] in
                 self?.currentIndex = 0
                 self?.updateButtons()
                 
-                self?.delegate?.modeDidChanged(.box)
+                self?.delegate?.modeDidChanged(.wall)
             }),
             GameModeButton(gameMode: .classic, action: { [weak self] in
                 self?.currentIndex = 1

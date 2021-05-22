@@ -45,12 +45,14 @@ final class GameModeButton: SView {
     func setSelected() {
         UIView.animate(withDuration: 0.25) {
             self.alpha = 1
+            self.transform = .identity
         }
     }
     
     func setDeselected() {
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) {
             self.alpha = 0.25
+            self.transform = .init(scaleX: 0.95, y: 0.95)
         }
     }
     

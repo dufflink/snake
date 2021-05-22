@@ -32,9 +32,6 @@
                                             <constraint firstAttribute="height" constant="50" id="ePb-7R-SzR"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                <real key="value" value="28"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="Start Game"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -65,11 +62,11 @@
                                     <constraint firstAttribute="height" constant="50" id="2Yg-J5-eqv"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                        <real key="value" value="28"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="Leaderboard"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="leaderboardButtonDidPress:" destination="RX4-AN-agc" eventType="touchUpInside" id="eG7-cX-Xx7"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WRD-Ie-Kog"/>

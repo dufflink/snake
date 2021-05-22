@@ -19,6 +19,8 @@
 		B006A68F257B7F7A00DEBDB6 /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B006A68E257B7F7A00DEBDB6 /* PauseButton.swift */; };
 		B02C63A5264944A500EC17C0 /* PauseMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02C63A4264944A500EC17C0 /* PauseMenu.storyboard */; };
 		B02C63A72649465F00EC17C0 /* PauseMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02C63A62649465F00EC17C0 /* PauseMenuViewController.swift */; };
+		B03837242657BAD60006CDD5 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03837232657BAD60006CDD5 /* GameCenterHelper.swift */; };
+		B0383726265909260006CDD5 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0383725265909260006CDD5 /* LocalStorage.swift */; };
 		B04AECDD25D7B9D9007ECCA3 /* SView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AECDC25D7B9D9007ECCA3 /* SView.swift */; };
 		B04AECE025D7BA4C007ECCA3 /* GameModeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04AECDF25D7BA4C007ECCA3 /* GameModeButton.xib */; };
 		B04AECE325D7BCE0007ECCA3 /* GameModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AECE225D7BCE0007ECCA3 /* GameModeButton.swift */; };
@@ -74,6 +76,8 @@
 		B006A68E257B7F7A00DEBDB6 /* PauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
 		B02C63A4264944A500EC17C0 /* PauseMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PauseMenu.storyboard; sourceTree = "<group>"; };
 		B02C63A62649465F00EC17C0 /* PauseMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseMenuViewController.swift; sourceTree = "<group>"; };
+		B03837232657BAD60006CDD5 /* GameCenterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
+		B0383725265909260006CDD5 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		B04AECDC25D7B9D9007ECCA3 /* SView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SView.swift; sourceTree = "<group>"; };
 		B04AECDF25D7BA4C007ECCA3 /* GameModeButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameModeButton.xib; sourceTree = "<group>"; };
 		B04AECE225D7BCE0007ECCA3 /* GameModeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeButton.swift; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 		B07F8333264EA22A0023F5F0 /* GameCenter */ = {
 			isa = PBXGroup;
 			children = (
+				B03837232657BAD60006CDD5 /* GameCenterHelper.swift */,
 			);
 			path = GameCenter;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				B04AECF925D7CCC8007ECCA3 /* GameMode.swift */,
 				B067F6E82654F03500564DE9 /* SoundHelper.swift */,
 				B067F6EA2654F21400564DE9 /* SoundHelper.Sound.swift */,
+				B0383725265909260006CDD5 /* LocalStorage.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -492,10 +498,12 @@
 				B006A68F257B7F7A00DEBDB6 /* PauseButton.swift in Sources */,
 				B0AAFFEC2576AA21003220D8 /* Food.swift in Sources */,
 				B06E1746257A539C00C0EB5E /* LabelNode.swift in Sources */,
+				B03837242657BAD60006CDD5 /* GameCenterHelper.swift in Sources */,
 				B05BAE74257F7BEA00DFAEDF /* SuperFood.swift in Sources */,
 				B067F6EB2654F21400564DE9 /* SoundHelper.Sound.swift in Sources */,
 				B04AECE325D7BCE0007ECCA3 /* GameModeButton.swift in Sources */,
 				B0AAFFF72576BD96003220D8 /* SpriteNode.swift in Sources */,
+				B0383726265909260006CDD5 /* LocalStorage.swift in Sources */,
 				B0AAFFF42576B9B4003220D8 /* MapNode.swift in Sources */,
 				B057841926566AA8003E933B /* SoundButton.swift in Sources */,
 				B04AECFA25D7CCC8007ECCA3 /* GameMode.swift in Sources */,

@@ -144,7 +144,8 @@ final class GameScene: SKScene {
         pauseButton.position = CGPoint(x: x, y: y)
         addChild(pauseButton)
         
-        soundButton = SoundButton(soundIsEnabled: true)
+        let soundIsEnabled = LocaleStorage().isOnSound
+        soundButton = SoundButton(soundIsEnabled: soundIsEnabled)
         
         let x1 = pauseButton.position.x - soundButton.frame.width - 8
         let y1 = pauseButton.position.y
@@ -168,7 +169,7 @@ final class GameScene: SKScene {
         map = MapNode(scene: self, mode: engine.mode)
         map.addToScene()
         
-        if engine.mode == .box {
+        if engine.mode == .wall {
             wall = WallFrame(map: map, color: Design.Color.lightGray.value)
             wall.addToScene()
         }

@@ -45,8 +45,8 @@ final class GameProcess {
     
     init(node: SKNode, delegate: GameProcessDelegate) {
         self.delegate = delegate
-        // TODO: взять значение из настроек
-        soundHelper = SoundHelper(node: node, soundState: true)
+        let isOnSound = LocaleStorage().isOnSound
+        soundHelper = SoundHelper(node: node, soundState: isOnSound)
     }
     
     // MARK: - Public Functions
@@ -103,7 +103,7 @@ final class GameProcess {
     
     func changeSoundState() {
         soundHelper.changeSoundState()
-        // TODO: Сохранять состояние
+        LocaleStorage().isOnSound = soundHelper.isOnSound
         delegate?.soundStateDidChange(soundHelper.isOnSound)
     }
     

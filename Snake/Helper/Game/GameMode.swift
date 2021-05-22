@@ -10,32 +10,32 @@ import UIKit
 enum GameMode {
     
     case classic
-    case box
+    case wall
     
     var title: String {
         switch self {
             case .classic:
                 return "Classic"
-            case .box:
-                return "Box"
+            case .wall:
+                return "Wall"
         }
     }
     
     var image: UIImage? {
         switch self {
             case .classic:
-                return UIImage(named: "Start")
-            case .box:
-                return UIImage(named: "Pause")
+                return UIImage(named: "Classic Mode")
+            case .wall:
+                return UIImage(named: "Wall Mode")
         }
     }
     
     var color: UIColor? {
         switch self {
             case .classic:
-                return Design.Color.green.value
-            case .box:
-                return Design.Color.green.value
+                return Design.Color.darkGrey.value
+            case .wall:
+                return Design.Color.darkGrey.value
         }
     }
     

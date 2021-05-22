@@ -168,6 +168,7 @@ import UIKit
     
     func updateState(toHighlighted: Bool) {
         alpha = toHighlighted ? pressedAlpha : 1
+        transform = toHighlighted ? .init(scaleX: 0.95, y: 0.95) : .identity
     }
     
     // MARK: - Private Functions

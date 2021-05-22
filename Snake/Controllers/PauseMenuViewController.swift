@@ -27,6 +27,8 @@ final class PauseMenuViewController: UIViewController {
     private var score = 0
     private var onPause = false
     
+    private let gameCenterHelper = GameCenterHelper.shared
+    
     // MARK: - Life Cycle
 
     static func instance(score: Int, onPause: Bool) -> PauseMenuViewController? {
@@ -65,6 +67,10 @@ final class PauseMenuViewController: UIViewController {
     private func configure() {
         resumeButton.isHidden = !onPause
         scoreLabel.text = String(score)
+        
+        if !onPause {
+            gameCenterHelper.addScore(score, mode: Options.gameMode)
+        }
     }
     
 }

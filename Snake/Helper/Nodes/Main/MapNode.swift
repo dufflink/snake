@@ -118,7 +118,7 @@ final class MapNode: GameNode {
         
         usedBoxed += prevBoxes
         
-        if mode == .box {
+        if mode == .wall {
             usedBoxed += edgeBoxes
         }
         
