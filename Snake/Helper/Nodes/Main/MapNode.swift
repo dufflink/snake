@@ -56,7 +56,7 @@ final class MapNode: GameNode {
         let boxesCount = (Constants.mapRows - 1) * (Constants.mapColumns - 1)
         
         for y in stride(from: boxSide, to: sceneHeight - boxSide, by: boxSide) {
-            for x in stride(from: boxSide, to: sceneWidth - boxSide, by: boxSide) {
+            for x in stride(from: boxSide + 4, to: sceneWidth - boxSide, by: boxSide) {
                 let box = createBox(x: x, y: y)
                 elements.append(box)
                 

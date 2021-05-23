@@ -9,7 +9,9 @@ import SpriteKit
 
 final class SoundHelper {
     
-    private let node: SKNode
+    static let shared = SoundHelper()
+    
+    private var node: SKNode?
     var isOnSound: Bool = true
     
     let foodSound = SKAction.playSoundFileNamed(Sound.food.sourceName, waitForCompletion: false)
@@ -17,22 +19,27 @@ final class SoundHelper {
     
     // MARK: - Life Cycle
     
-    init(node: SKNode, soundState: Bool) {
-        self.node = node
-        self.isOnSound = soundState
-    }
+    private init() { }
     
     // MARK: - Public Functions
     
+    func setSoundState(_ isOnSound: Bool) {
+        self.isOnSound = isOnSound
+    }
+    
+    func setNode(_ node: SKNode) {
+        self.node = node
+    }
+    
     func playFoodSound() {
         if isOnSound {
-            node.run(foodSound)
+            node?.run(foodSound)
         }
     }
     
     func playSuperFoodSound() {
         if isOnSound {
-            node.run(superFoodSound)
+            node?.run(superFoodSound)
         }
     }
     

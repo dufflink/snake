@@ -35,9 +35,6 @@ class GameViewController: UIViewController {
         
         skView.presentScene(scene)
         skView.ignoresSiblingOrder = true
-
-        skView.showsFPS = true
-        skView.showsNodeCount = true
     }
     
     private func presentPauseMenuViewController(onPause: Bool, score: Int) {

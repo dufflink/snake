@@ -28,8 +28,6 @@ final class GameProcess {
     
     weak var delegate: GameProcessDelegate?
     
-    private let soundHelper: SoundHelper
-    
     private var totalEatCount = 0
     var score = 0
     
@@ -46,7 +44,9 @@ final class GameProcess {
     init(node: SKNode, delegate: GameProcessDelegate) {
         self.delegate = delegate
         let isOnSound = LocaleStorage().isOnSound
-        soundHelper = SoundHelper(node: node, soundState: isOnSound)
+        
+        SoundHelper.shared.setNode(node)
+        SoundHelper.shared.setSoundState(isOnSound)
     }
     
     // MARK: - Public Functions
@@ -58,7 +58,7 @@ final class GameProcess {
         delegate?.scoreDidChange(score)
         
         if totalEatCount % 5 == 0 {
-            soundHelper.playSuperFoodSound()
+            SoundHelper.shared.playSuperFoodSound()
             Haptico.shared().generate(.warning)
             
             needTimer = true
@@ -66,7 +66,7 @@ final class GameProcess {
             delegate?.needPlaceSuperFood()
             startSuperFoodTimer()
         } else {
-            soundHelper.playFoodSound()
+            SoundHelper.shared.playFoodSound()
             Haptico.shared().generate(.light)
         }
     }
@@ -84,7 +84,7 @@ final class GameProcess {
     }
     
     func superFoodDidEat() {
-        soundHelper.playFoodSound()
+        SoundHelper.shared.playFoodSound()
         Haptico.shared().generate(.light)
         
         let points = Int(superFoodTimeLeft * 10)
@@ -102,9 +102,9 @@ final class GameProcess {
     }
     
     func changeSoundState() {
-        soundHelper.changeSoundState()
-        LocaleStorage().isOnSound = soundHelper.isOnSound
-        delegate?.soundStateDidChange(soundHelper.isOnSound)
+        SoundHelper.shared.changeSoundState()
+        LocaleStorage().isOnSound = SoundHelper.shared.isOnSound
+        delegate?.soundStateDidChange(SoundHelper.shared.isOnSound)
     }
     
     // MARK: - Private Functions
