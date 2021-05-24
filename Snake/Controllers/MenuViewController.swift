@@ -67,11 +67,6 @@ final class MenuViewController: UIViewController {
             guard let vc = vc else {
                 print("Game Center View Controller is nil")
                 self?.localStorage.isUserCanceledGameCenter = !isAuth
-                
-                if !isAuth {
-                    // TODO: Сообщить, что результаты не будут записаны в таблицу лидеров
-                }
-                
                 return
             }
             
@@ -100,6 +95,10 @@ extension MenuViewController: GKGameCenterControllerDelegate {
     
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
         gameCenterViewController.dismiss(animated: true)
+        
+        if !gameCenterHelper.isAuth {
+            SAlert(title: "Your results results won't be recorded on the leaderboard").present()
+        }
     }
     
 }

@@ -41,6 +41,8 @@ import UIKit
         }
     }
     
+    @IBInspectable var isResponsiveAlpha: Bool = true
+    
     @IBInspectable var pressedAlpha: CGFloat = 0.25
     
     @IBInspectable var cornersRadius: CGFloat {
@@ -167,7 +169,10 @@ import UIKit
     }
     
     func updateState(toHighlighted: Bool) {
-        alpha = toHighlighted ? pressedAlpha : 1
+        if isResponsiveAlpha {
+            alpha = toHighlighted ? pressedAlpha : 1
+        }
+        
         transform = toHighlighted ? .init(scaleX: 0.95, y: 0.95) : .identity
     }
     

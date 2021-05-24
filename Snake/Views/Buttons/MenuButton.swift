@@ -23,11 +23,8 @@ import UIKit
     private func configure() {
         isResponsive = true
         cornersRadius = 8
-        backgroundColor = Design.Color.darkGrey.value
         
         labelView = SLabel()
-        
-        labelView?.font = Design.getFont(size: 28)
         labelView?.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(labelView)
@@ -42,6 +39,9 @@ import UIKit
     private func updateProperties() {
         textLabel = nil ?? textLabel
         textColor = nil ?? textColor
+        
+        labelView.font = nil ?? Design.getFont(size: fontSize)
+        buttonColor = nil ?? buttonColor
     }
     
     // MARK: - Inspected Properties
@@ -55,6 +55,18 @@ import UIKit
     @IBInspectable var textColor: UIColor? = Design.Color.yellow.value {
         didSet {
             labelView?.textColor = textColor
+        }
+    }
+    
+    @IBInspectable var fontSize: CGFloat = 28 {
+        didSet {
+            labelView?.font = Design.getFont(size: fontSize)
+        }
+    }
+    
+    @IBInspectable var buttonColor: UIColor? = Design.Color.darkGrey.value {
+        didSet {
+            backgroundColor = buttonColor
         }
     }
     

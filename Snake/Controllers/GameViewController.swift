@@ -76,11 +76,21 @@ extension GameViewController: GameSceneDelegate {
 extension GameViewController: PauseMenuViewControllerDelegate {
     
     func restartButtonDidPress(onPause: Bool) {
-        gameScene?.setInterfaceHiddenState(false)
+        let restartAction = {
+            self.gameScene?.setInterfaceHiddenState(false)
+            
+            self.pauseMenuViewController?.dismiss(animated: true) {
+                self.gameScene?.restartGame()
+                self.gameScene?.resumeGame()
+            }
+        }
         
-        pauseMenuViewController?.dismiss(animated: true) {
-            self.gameScene?.restartGame()
-            self.gameScene?.resumeGame()
+        if onPause {
+            SAlert(title: "Are you sure you want to restart the game?") {
+                restartAction()
+            }.present()
+        } else {
+            restartAction()
         }
     }
     
@@ -93,8 +103,18 @@ extension GameViewController: PauseMenuViewControllerDelegate {
     }
     
     func exitButtonDidPress(onPause: Bool) {
-        pauseMenuViewController?.dismiss(animated: false) {
-            self.dismiss(animated: true)
+        let exitAction = {
+            self.pauseMenuViewController?.dismiss(animated: false) {
+                self.dismiss(animated: true)
+            }
+        }
+        
+        if onPause {
+            SAlert(title: "Are you sure you want to exit the game?") {
+                exitAction()
+            }.present()
+        } else {
+            exitAction()
         }
     }
     

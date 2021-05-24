@@ -54,6 +54,9 @@
 		B0DF37DB25769EF900A3E453 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DF37DA25769EF900A3E453 /* Constants.swift */; };
 		B0DF37DF25769FB300A3E453 /* GameNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DF37DE25769FB300A3E453 /* GameNode.swift */; };
 		B0DF37E42576A15800A3E453 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DF37E32576A15800A3E453 /* Box.swift */; };
+		B0EE18BB265C0CB6009B6C88 /* SAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EE18BA265C0CB6009B6C88 /* SAlert.swift */; };
+		B0EE18C0265C0E1C009B6C88 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EE18BF265C0E1C009B6C88 /* UIView.swift */; };
+		B0EE18C2265C0E40009B6C88 /* SAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0EE18C1265C0E40009B6C88 /* SAlert.xib */; };
 		B0FA1B672577C89800310920 /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA1B662577C89800310920 /* GameEngine.swift */; };
 		B0FA1B6C2577CEAC00310920 /* Snake.MovingDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA1B6B2577CEAC00310920 /* Snake.MovingDirection.swift */; };
 /* End PBXBuildFile section */
@@ -111,6 +114,9 @@
 		B0DF37DA25769EF900A3E453 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B0DF37DE25769FB300A3E453 /* GameNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNode.swift; sourceTree = "<group>"; };
 		B0DF37E32576A15800A3E453 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		B0EE18BA265C0CB6009B6C88 /* SAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAlert.swift; sourceTree = "<group>"; };
+		B0EE18BF265C0E1C009B6C88 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		B0EE18C1265C0E40009B6C88 /* SAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SAlert.xib; sourceTree = "<group>"; };
 		B0FA1B662577C89800310920 /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 		B0FA1B6B2577CEAC00310920 /* Snake.MovingDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.MovingDirection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,11 +221,10 @@
 		B04AECDB25D7B9CC007ECCA3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B0EE18BE265C0CCD009B6C88 /* Buttons */,
 				B04AED0325D7D767007ECCA3 /* Global */,
-				B04AECDF25D7BA4C007ECCA3 /* GameModeButton.xib */,
-				B04AECE225D7BCE0007ECCA3 /* GameModeButton.swift */,
-				B04AECE625D7BF53007ECCA3 /* GameModeStackView.swift */,
-				B005D1CA2645A47600DB4A58 /* MenuButton.swift */,
+				B0EE18BA265C0CB6009B6C88 /* SAlert.swift */,
+				B0EE18C1265C0E40009B6C88 /* SAlert.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				B0AAFFEF2576ABB4003220D8 /* SKScene.swift */,
+				B0EE18BF265C0E1C009B6C88 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -344,6 +350,17 @@
 				B0383725265909260006CDD5 /* LocalStorage.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		B0EE18BE265C0CCD009B6C88 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				B04AECDF25D7BA4C007ECCA3 /* GameModeButton.xib */,
+				B04AECE225D7BCE0007ECCA3 /* GameModeButton.swift */,
+				B04AECE625D7BF53007ECCA3 /* GameModeStackView.swift */,
+				B005D1CA2645A47600DB4A58 /* MenuButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		B0FA1B6A2577CE9F00310920 /* Snake */ = {
@@ -429,6 +446,7 @@
 				B005D1C92645A25600DB4A58 /* kroftsmann5.ttf in Resources */,
 				B095D25225764B3900135F2C /* LaunchScreen.storyboard in Resources */,
 				B00538F3257579ED00D328F1 /* Assets.xcassets in Resources */,
+				B0EE18C2265C0E40009B6C88 /* SAlert.xib in Resources */,
 				B0A6106425D252A50056D78A /* Menu.storyboard in Resources */,
 				B00538FC25757B4600D328F1 /* GameScene.sks in Resources */,
 				B04AECE025D7BA4C007ECCA3 /* GameModeButton.xib in Resources */,
@@ -499,7 +517,9 @@
 				B0AAFFEC2576AA21003220D8 /* Food.swift in Sources */,
 				B06E1746257A539C00C0EB5E /* LabelNode.swift in Sources */,
 				B03837242657BAD60006CDD5 /* GameCenterHelper.swift in Sources */,
+				B0EE18C0265C0E1C009B6C88 /* UIView.swift in Sources */,
 				B05BAE74257F7BEA00DFAEDF /* SuperFood.swift in Sources */,
+				B0EE18BB265C0CB6009B6C88 /* SAlert.swift in Sources */,
 				B067F6EB2654F21400564DE9 /* SoundHelper.Sound.swift in Sources */,
 				B04AECE325D7BCE0007ECCA3 /* GameModeButton.swift in Sources */,
 				B0AAFFF72576BD96003220D8 /* SpriteNode.swift in Sources */,

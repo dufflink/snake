@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SAlert" customModule="Snake" customModuleProvider="target">
+            <connections>
+                <outlet property="acceptButton" destination="UlZ-Qm-qhc" id="nbW-m8-p6v"/>
+                <outlet property="cancelButton" destination="0XK-Ok-4Pa" id="8Q7-0a-f3R"/>
+                <outlet property="equalWidth" destination="0X2-DD-9GJ" id="psZ-vx-7bB"/>
+                <outlet property="popupView" destination="UKs-Qc-eg0" id="x0f-na-2XO"/>
+                <outlet property="titleLabel" destination="eiq-7b-5gh" id="GOy-x9-KfJ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2ib-ix-pLa" userLabel="SAlert">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKs-Qc-eg0" userLabel="Popup View" customClass="SView" customModule="Snake" customModuleProvider="target">
+                    <rect key="frame" x="32" y="378" width="350" height="140.5"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhX-iU-OgI" userLabel="Main View" customClass="SView" customModule="Snake" customModuleProvider="target">
+                            <rect key="frame" x="8" y="8" width="334" height="76.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to finish the game?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiq-7b-5gh" userLabel="Title Label" customClass="SLabel" customModule="Snake" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="16" width="302" height="44.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" name="Dark Gray"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                            <real key="value" value="24"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" name="Yellow"/>
+                            <constraints>
+                                <constraint firstItem="eiq-7b-5gh" firstAttribute="leading" secondItem="AhX-iU-OgI" secondAttribute="leading" constant="16" id="Dra-J5-S5h"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="a78-bM-RpO"/>
+                                <constraint firstAttribute="trailing" secondItem="eiq-7b-5gh" secondAttribute="trailing" constant="16" id="j2X-Yd-6WT"/>
+                                <constraint firstItem="eiq-7b-5gh" firstAttribute="top" secondItem="AhX-iU-OgI" secondAttribute="top" constant="16" id="qtV-G1-Io8"/>
+                                <constraint firstAttribute="bottom" secondItem="eiq-7b-5gh" secondAttribute="bottom" constant="16" id="xFZ-q1-Iaz"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornersRadius">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0XK-Ok-4Pa" userLabel="Cancel Button" customClass="MenuButton" customModule="Snake" customModuleProvider="target">
+                            <rect key="frame" x="8" y="92.5" width="163" height="40"/>
+                            <color key="backgroundColor" name="Yellow"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="XAV-qx-j4q"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="Cancel"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                    <color key="value" name="Medium Gray"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                    <color key="value" name="Yellow"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isResponsiveAlpha" value="NO"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="cancelButtonDidPress:" destination="-1" eventType="touchUpInside" id="2vM-Q0-0fO"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UlZ-Qm-qhc" userLabel="Accept Button" customClass="MenuButton" customModule="Snake" customModuleProvider="target">
+                            <rect key="frame" x="179" y="92.5" width="163" height="40"/>
+                            <color key="backgroundColor" name="Yellow"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="O9j-uu-x2j"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="Accept"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                    <color key="value" name="Red"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                    <color key="value" name="Yellow"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isResponsiveAlpha" value="NO"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="acceptButtonDidPress:" destination="-1" eventType="touchUpInside" id="GZI-sr-uhG"/>
+                            </connections>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="Dark Gray"/>
+                    <constraints>
+                        <constraint firstItem="UlZ-Qm-qhc" firstAttribute="width" secondItem="0XK-Ok-4Pa" secondAttribute="width" id="0X2-DD-9GJ"/>
+                        <constraint firstItem="UlZ-Qm-qhc" firstAttribute="trailing" secondItem="UKs-Qc-eg0" secondAttribute="trailing" constant="-8" id="BGL-k2-6ED"/>
+                        <constraint firstAttribute="bottom" secondItem="0XK-Ok-4Pa" secondAttribute="bottom" constant="8" id="MVr-KM-ihw"/>
+                        <constraint firstItem="AhX-iU-OgI" firstAttribute="top" secondItem="UKs-Qc-eg0" secondAttribute="top" constant="8" id="NeF-BG-xAL"/>
+                        <constraint firstItem="AhX-iU-OgI" firstAttribute="trailing" secondItem="UKs-Qc-eg0" secondAttribute="trailing" constant="-8" id="Z4K-jM-uPe"/>
+                        <constraint firstItem="UlZ-Qm-qhc" firstAttribute="top" secondItem="AhX-iU-OgI" secondAttribute="bottom" constant="8" symbolic="YES" id="ZTh-Yl-57E"/>
+                        <constraint firstItem="UlZ-Qm-qhc" firstAttribute="bottom" secondItem="UKs-Qc-eg0" secondAttribute="bottom" constant="-8" id="eR1-7t-LCe"/>
+                        <constraint firstItem="AhX-iU-OgI" firstAttribute="leading" secondItem="UKs-Qc-eg0" secondAttribute="leading" constant="8" id="nzA-1U-2X8"/>
+                        <constraint firstItem="0XK-Ok-4Pa" firstAttribute="leading" secondItem="UKs-Qc-eg0" secondAttribute="leading" constant="8" id="paa-yo-ywa"/>
+                        <constraint firstItem="UlZ-Qm-qhc" firstAttribute="leading" secondItem="0XK-Ok-4Pa" secondAttribute="trailing" constant="8" id="ySH-Ds-uep"/>
+                        <constraint firstItem="0XK-Ok-4Pa" firstAttribute="top" secondItem="AhX-iU-OgI" secondAttribute="bottom" constant="8" symbolic="YES" id="zDX-Gd-zn5"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornersRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="7KT-O4-JCt"/>
+            <color key="backgroundColor" red="0.17254901960784313" green="0.18431372549019609" blue="0.21568627450980393" alpha="0.50429564747730449" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="7KT-O4-JCt" firstAttribute="trailing" secondItem="UKs-Qc-eg0" secondAttribute="trailing" constant="32" id="awO-1c-alf"/>
+                <constraint firstItem="UKs-Qc-eg0" firstAttribute="centerY" secondItem="2ib-ix-pLa" secondAttribute="centerY" id="r8h-cw-6LR"/>
+                <constraint firstItem="UKs-Qc-eg0" firstAttribute="leading" secondItem="7KT-O4-JCt" secondAttribute="leading" constant="32" id="rXG-4q-aoS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-136.23188405797103" y="8.7053571428571423"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="eiq-7b-5gh">
+            <size key="intrinsicContentSize" width="427" height="22.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="Dark Gray">
+            <color red="0.17254901960784313" green="0.18431372549019609" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Medium Gray">
+            <color red="0.22352941176470589" green="0.23921568627450981" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Red">
+            <color red="1" green="0.65098039215686276" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Yellow">
+            <color red="0.98039215686274506" green="0.95294117647058818" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
