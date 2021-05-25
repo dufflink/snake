@@ -85,11 +85,17 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ere-g3-vyc">
+                                        <rect key="frame" x="180.5" y="154" width="37" height="37"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="qnX-rA-3pP" secondAttribute="trailing" constant="32" id="Ao5-DA-KTS"/>
                                     <constraint firstItem="qnX-rA-3pP" firstAttribute="top" secondItem="Jpo-Wz-8e4" secondAttribute="top" constant="8" id="H25-bP-4Uw"/>
+                                    <constraint firstItem="ere-g3-vyc" firstAttribute="centerY" secondItem="Jpo-Wz-8e4" secondAttribute="centerY" id="SfF-JV-lXg"/>
                                     <constraint firstAttribute="bottom" secondItem="qnX-rA-3pP" secondAttribute="bottom" constant="8" id="dSq-pF-myG"/>
+                                    <constraint firstItem="ere-g3-vyc" firstAttribute="centerX" secondItem="Jpo-Wz-8e4" secondAttribute="centerX" id="lDa-Ex-Vm8"/>
                                     <constraint firstItem="qnX-rA-3pP" firstAttribute="leading" secondItem="Jpo-Wz-8e4" secondAttribute="leading" constant="32" id="uVU-CJ-lNZ"/>
                                 </constraints>
                             </view>
@@ -107,6 +113,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadingView" destination="ere-g3-vyc" id="g7c-Mq-Q0R"/>
                         <outlet property="resumeButton" destination="ELi-2Z-iba" id="Lfk-Gd-hwT"/>
                         <outlet property="scoreLabel" destination="qnX-rA-3pP" id="gLY-bc-cfe"/>
                     </connections>
@@ -118,7 +125,7 @@
     </scenes>
     <designables>
         <designable name="qnX-rA-3pP">
-            <size key="intrinsicContentSize" width="573" height="83"/>
+            <size key="intrinsicContentSize" width="140.5" height="20.5"/>
         </designable>
     </designables>
     <resources>

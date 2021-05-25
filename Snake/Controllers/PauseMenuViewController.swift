@@ -19,8 +19,10 @@ protocol PauseMenuViewControllerDelegate: AnyObject {
 
 final class PauseMenuViewController: UIViewController {
     
-    @IBOutlet weak var resumeButton: MenuButton!
-    @IBOutlet weak var scoreLabel: SLabel!
+    @IBOutlet private weak var resumeButton: MenuButton!
+    @IBOutlet private weak var scoreLabel: SLabel!
+    
+    @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     
     weak var delegate: PauseMenuViewControllerDelegate?
     
@@ -69,7 +71,26 @@ final class PauseMenuViewController: UIViewController {
         scoreLabel.text = String(score)
         
         if !onPause {
-            gameCenterHelper.addScore(score, mode: Options.gameMode)
+            sendScore()
+        }
+    }
+    
+    func sendScore() {
+        scoreLabel.alpha = 0
+        loadingView.startAnimating()
+        
+        gameCenterHelper.addScore(score, mode: Options.gameMode) { [weak self] error in
+            self?.loadingView.stopAnimating()
+            
+            UIView.animate(withDuration: 0.25) {
+                self?.scoreLabel.alpha = 1
+            }
+            
+            if error == nil {
+                SAlert(title: "Sorry we couldn't record your score. Want you resend it?") {
+                    self?.sendScore()
+                }.present()
+            }
         }
     }
     

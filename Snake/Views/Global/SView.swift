@@ -41,6 +41,13 @@ import UIKit
         }
     }
     
+    @IBInspectable var isActive: Bool = true {
+        didSet {
+            isEnabled = isActive
+            alpha = isActive ? 1 : 0.5
+        }
+    }
+    
     @IBInspectable var isResponsiveAlpha: Bool = true
     
     @IBInspectable var pressedAlpha: CGFloat = 0.25

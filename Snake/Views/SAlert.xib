@@ -24,13 +24,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKs-Qc-eg0" userLabel="Popup View" customClass="SView" customModule="Snake" customModuleProvider="target">
-                    <rect key="frame" x="32" y="378" width="350" height="140.5"/>
+                    <rect key="frame" x="32" y="379.5" width="350" height="137"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhX-iU-OgI" userLabel="Main View" customClass="SView" customModule="Snake" customModuleProvider="target">
-                            <rect key="frame" x="8" y="8" width="334" height="76.5"/>
+                            <rect key="frame" x="8" y="8" width="334" height="73"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to finish the game?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiq-7b-5gh" userLabel="Title Label" customClass="SLabel" customModule="Snake" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="16" width="302" height="44.5"/>
+                                    <rect key="frame" x="16" y="16" width="302" height="41"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" name="Dark Gray"/>
                                     <nil key="highlightedColor"/>
@@ -56,13 +56,13 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0XK-Ok-4Pa" userLabel="Cancel Button" customClass="MenuButton" customModule="Snake" customModuleProvider="target">
-                            <rect key="frame" x="8" y="92.5" width="163" height="40"/>
+                            <rect key="frame" x="8" y="89" width="163" height="40"/>
                             <color key="backgroundColor" name="Yellow"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="XAV-qx-j4q"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="Cancel"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="NO"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                     <color key="value" name="Medium Gray"/>
                                 </userDefinedRuntimeAttribute>
@@ -79,13 +79,13 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UlZ-Qm-qhc" userLabel="Accept Button" customClass="MenuButton" customModule="Snake" customModuleProvider="target">
-                            <rect key="frame" x="179" y="92.5" width="163" height="40"/>
+                            <rect key="frame" x="179" y="89" width="163" height="40"/>
                             <color key="backgroundColor" name="Yellow"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="O9j-uu-x2j"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="Accept"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="YES"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                     <color key="value" name="Red"/>
                                 </userDefinedRuntimeAttribute>
@@ -136,7 +136,7 @@
     </objects>
     <designables>
         <designable name="eiq-7b-5gh">
-            <size key="intrinsicContentSize" width="427" height="22.5"/>
+            <size key="intrinsicContentSize" width="317.5" height="20.5"/>
         </designable>
     </designables>
     <resources>

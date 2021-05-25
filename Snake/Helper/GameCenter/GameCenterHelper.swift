@@ -28,21 +28,23 @@ final class GameCenterHelper {
     
     // MARK: - Public Functions
     
-    func auth(completion: @escaping (_ vc: UIViewController?, _ isAuth: Bool) -> Void) {
-        player.authenticateHandler = { vc, error in
-            if let error = error {
-                print(error.localizedDescription)
-                completion(nil, self.isAuth)
+    func auth(completion: @escaping (_ vc: UIViewController?, _ isAuth: Bool, _ error: Error?) -> Void) {
+        player.authenticateHandler = { [weak self] vc, error in
+            guard let isAuth = self?.isAuth else {
                 return
             }
             
-            completion(vc, self.isAuth)
+            if let error = error {
+                print(error.localizedDescription)
+                completion(nil, isAuth, error)
+                return
+            }
+            
+            completion(vc, isAuth, nil)
         }
-        
-        completion(nil, self.isAuth)
     }
     
-    func addScore(_ score: Int, mode: GameMode) {
+    func addScore(_ score: Int, mode: GameMode, completion: @escaping (Error?) -> Void) {
         let leaderboardID = mode == .classic ? classicModeLeaderboardID : boxModeLeaderboardID
         let gkScore = GKScore(leaderboardIdentifier: leaderboardID)
         gkScore.value = Int64(score)
@@ -50,7 +52,11 @@ final class GameCenterHelper {
         GKScore.report([gkScore]) { error in
             if let error = error {
                 print(error.localizedDescription)
+                completion(error)
+                return
             }
+            
+            completion(nil)
         }
     }
     

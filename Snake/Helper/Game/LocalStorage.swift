@@ -17,14 +17,6 @@ final class LocaleStorage {
     
     // MARK: - Public Properties
     
-    var isUserCanceledGameCenter: Bool {
-        get {
-            return userDefaults.bool(forKey: "isUserCanceledGameCenter")
-        } set {
-            userDefaults.set(newValue, forKey: "isUserCanceledGameCenter")
-        }
-    }
-    
     var isOnSound: Bool {
         get {
             return userDefaults.bool(forKey: "isOnSound")

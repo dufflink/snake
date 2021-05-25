@@ -63,6 +63,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="textLabel" value="Leaderboard"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isActive" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="leaderboardButtonDidPress:" destination="RX4-AN-agc" eventType="touchUpInside" id="eG7-cX-Xx7"/>
@@ -87,6 +88,7 @@
                     </view>
                     <connections>
                         <outlet property="gameModeStackView" destination="pz7-SU-lw7" id="Nfy-aE-Pdx"/>
+                        <outlet property="leaderboardButton" destination="9Cq-lt-DpK" id="CaG-Ps-4uZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZ7-cA-JjS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

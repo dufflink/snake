@@ -11,6 +11,7 @@ import GameKit
 final class MenuViewController: UIViewController {
     
     @IBOutlet private weak var gameModeStackView: GameModeStackView!
+    @IBOutlet private weak var leaderboardButton: MenuButton!
     
     private let gameCenterHelper = GameCenterHelper.shared
     private let localStorage = LocaleStorage()
@@ -22,10 +23,6 @@ final class MenuViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard !localStorage.isUserCanceledGameCenter else {
-            return
-        }
-        
         openGameCenterAuth()
     }
     
@@ -63,13 +60,17 @@ final class MenuViewController: UIViewController {
     }
     
     private func openGameCenterAuth() {
-        gameCenterHelper.auth { [weak self] vc, isAuth  in
-            guard let vc = vc else {
+        gameCenterHelper.auth { [weak self] vc, isAuth, error  in
+            guard let vc = vc as? GKGameCenterViewController else {
                 print("Game Center View Controller is nil")
-                self?.localStorage.isUserCanceledGameCenter = !isAuth
+                DispatchQueue.main.async {
+                    self?.leaderboardButton.isActive = isAuth
+                }
+                
                 return
             }
             
+            vc.gameCenterDelegate = self
             self?.present(vc, animated: true)
         }
     }
@@ -97,7 +98,7 @@ extension MenuViewController: GKGameCenterControllerDelegate {
         gameCenterViewController.dismiss(animated: true)
         
         if !gameCenterHelper.isAuth {
-            SAlert(title: "Your results results won't be recorded on the leaderboard").present()
+            SAlert(title: "You should enable Game Center otherwise your results won't be recorded on the leaderboard").present()
         }
     }
     
