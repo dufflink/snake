@@ -685,6 +685,7 @@
 				CODE_SIGN_ENTITLEMENTS = Snake/Snake.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = CX6AZ34SLQ;
 				INFOPLIST_FILE = Snake/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -709,6 +710,7 @@
 				CODE_SIGN_ENTITLEMENTS = Snake/Snake.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = CX6AZ34SLQ;
 				INFOPLIST_FILE = Snake/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -86,7 +86,7 @@ final class PauseMenuViewController: UIViewController {
                 self?.scoreLabel.alpha = 1
             }
             
-            if error == nil {
+            if error != nil {
                 SAlert(title: "Sorry we couldn't record your score. Want you resend it?") {
                     self?.sendScore()
                 }.present()

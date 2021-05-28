@@ -16,6 +16,10 @@ final class MenuViewController: UIViewController {
     private let gameCenterHelper = GameCenterHelper.shared
     private let localStorage = LocaleStorage()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
