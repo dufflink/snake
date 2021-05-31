@@ -102,15 +102,15 @@ final class Snake: Sprite {
                 
                 if posX > map.maxX - dX && direction == .right {
                     headX = map.minX
-                    headY = box.y
+                    headY = posY
                 } else if posX <= map.minX && direction == .left {
                     headX = map.maxX
-                    headY = box.y
+                    headY = posY
                 } else if posY <= map.minY && direction == .down {
-                    headX = box.x
+                    headX = posX
                     headY = map.maxY
                 } else if posY > map.maxY - dY && direction == .up {
-                    headX = box.x
+                    headX = posX
                     headY = map.minY
                 } else {
                     isOppositeSide = false
