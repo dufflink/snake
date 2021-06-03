@@ -14,7 +14,7 @@ final class GameCenterHelper {
     private let player = GKLocalPlayer.local
     
     let classicModeLeaderboardID = "com.maximskorynin.Snake.classic.leaderboard"
-    let boxModeLeaderboardID = "com.maximskorynin.Snake.wall.leaderboard"
+    let wallModeLeaderboardID = "com.maximskorynin.Snake.wall.leaderboard"
     
     // MARK: - Public Properties
     
@@ -45,7 +45,7 @@ final class GameCenterHelper {
     }
     
     func addScore(_ score: Int, mode: GameMode, completion: @escaping (Error?) -> Void) {
-        let leaderboardID = mode == .classic ? classicModeLeaderboardID : boxModeLeaderboardID
+        let leaderboardID = mode == .classic ? classicModeLeaderboardID : wallModeLeaderboardID
         let gkScore = GKScore(leaderboardIdentifier: leaderboardID)
         gkScore.value = Int64(score)
         

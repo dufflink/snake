@@ -36,7 +36,7 @@ final class GameProcess {
     private var superFoodTimer: Timer?
     private var timeStep: TimeInterval = 0.1
     
-    private var superFoodTimeLeft: TimeInterval = 10.0
+    private var superFoodTimeLeft: TimeInterval = 10
     private var needTimer = false
     
     // MARK: - Life Cycle
@@ -110,6 +110,9 @@ final class GameProcess {
     // MARK: - Private Functions
     
     private func startSuperFoodTimer() {
+        superFoodTimer?.invalidate()
+        superFoodTimeLeft = 10
+        
         let savedProgress = Float(superFoodTimeLeft / 10)
         delegate?.superFoodTimerDidStart(savedProgress: savedProgress)
         
