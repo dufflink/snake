@@ -50,7 +50,7 @@ final class MenuViewController: UIViewController {
             vc.gameCenterDelegate = self
             vc.viewState = .leaderboards
             
-            vc.leaderboardIdentifier = Options.gameMode == .classic ?  gameCenterHelper.classicModeLeaderboardID : gameCenterHelper.wallModeLeaderboardID
+            vc.leaderboardIdentifier = Options.gameMode == .classic ?  gameCenterHelper.weeklyClassicModeLeaderboardID : gameCenterHelper.weeklyWallModeLeaderboardID
             
             present(vc, animated: true)
         } else {

@@ -14,7 +14,10 @@ final class GameCenterHelper {
     private let player = GKLocalPlayer.local
     
     let classicModeLeaderboardID = "com.maximskorynin.Snake.classic.leaderboard"
+    let weeklyClassicModeLeaderboardID = "com.maximskorynin.Snake.weekly.classic.leaderboard"
+    
     let wallModeLeaderboardID = "com.maximskorynin.Snake.wall.leaderboard"
+    let weeklyWallModeLeaderboardID = "com.maximskorynin.Snake.weekly.wall.leaderboard"
     
     // MARK: - Public Properties
     
@@ -45,11 +48,25 @@ final class GameCenterHelper {
     }
     
     func addScore(_ score: Int, mode: GameMode, completion: @escaping (Error?) -> Void) {
-        let leaderboardID = mode == .classic ? classicModeLeaderboardID : wallModeLeaderboardID
-        let gkScore = GKScore(leaderboardIdentifier: leaderboardID)
-        gkScore.value = Int64(score)
+        var scores: [GKScore] = []
         
-        GKScore.report([gkScore]) { error in
+        if mode == .classic {
+            scores = [
+                GKScore(leaderboardIdentifier: classicModeLeaderboardID),
+                GKScore(leaderboardIdentifier: weeklyClassicModeLeaderboardID)
+            ]
+        } else {
+            scores = [
+                GKScore(leaderboardIdentifier: wallModeLeaderboardID),
+                GKScore(leaderboardIdentifier: weeklyWallModeLeaderboardID)
+            ]
+        }
+        
+        scores.forEach {
+            $0.value = Int64(score)
+        }
+        
+        GKScore.report(scores) { error in
             if let error = error {
                 print(error.localizedDescription)
                 completion(error)
